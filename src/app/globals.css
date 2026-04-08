@@ -1,26 +1,489 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Surface Colors */
+  --color-surface: #131314;
+  --color-surface-dim: #131314;
+  --color-surface-bright: #3a393a;
+  --color-surface-container: #201f20;
+  --color-surface-container-low: #1c1b1c;
+  --color-surface-container-lowest: #0e0e0f;
+  --color-surface-container-high: #2a2a2b;
+  --color-surface-container-highest: #353436;
+  --color-surface-variant: #353436;
+  --color-surface-tint: #48d67a;
+
+  /* Background */
+  --color-background: #131314;
+  --color-on-background: #e5e2e3;
+
+  /* Primary Colors */
+  --color-primary: #5ae88a;
+  --color-primary-container: #45d478;
+  --color-primary-fixed: #5aea8c;
+  --color-primary-fixed-dim: #48d67a;
+  --color-on-primary: #003919;
+  --color-on-primary-container: #005e2d;
+  --color-on-primary-fixed: #00210c;
+  --color-on-primary-fixed-variant: #005227;
+  --color-inverse-primary: #006d36;
+
+  /* Secondary Colors */
+  --color-secondary: #ffc640;
+  --color-secondary-container: #e3aa00;
+  --color-secondary-fixed: #ffdf9f;
+  --color-secondary-fixed-dim: #f9bd22;
+  --color-on-secondary: #402d00;
+  --color-on-secondary-container: #5a4100;
+  --color-on-secondary-fixed: #261a00;
+  --color-on-secondary-fixed-variant: #5c4300;
+
+  /* Tertiary Colors */
+  --color-tertiary: #e0e0e0;
+  --color-tertiary-container: #c4c4c4;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-on-tertiary: #2f3131;
+  --color-on-tertiary-container: #4f5151;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-on-tertiary-fixed-variant: #454747;
+
+  /* Error Colors */
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  /* Surface Text */
+  --color-on-surface: #e5e2e3;
+  --color-on-surface-variant: #bccabb;
+  --color-inverse-surface: #e5e2e3;
+  --color-inverse-on-surface: #313031;
+
+  /* Outline */
+  --color-outline: #869486;
+  --color-outline-variant: #3d4a3e;
+
+  /* Fonts */
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Border Radius - Terminal aesthetic = 0 */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXskPMBBSSJLm2E.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2') format('woff2');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* Glass Panel Effect */
+.glass-panel {
+  background: rgba(32, 31, 32, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Terminal Cursor Animation */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background-color: var(--color-primary);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Glow effect for primary elements */
+.glow-primary {
+  box-shadow: 0 0 15px rgba(90, 232, 138, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* ========================================
+   RETRO TERMINAL EFFECTS (subtle)
+   ======================================== */
+
+/* Subtle scanlines overlay - apply to containers that need the effect */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  z-index: 10;
+}
+
+/* Subtle CRT screen glow for terminal windows */
+.crt-glow {
+  box-shadow:
+    inset 0 0 60px rgba(90, 232, 138, 0.03),
+    0 0 30px rgba(90, 232, 138, 0.05);
+}
+
+/* Text shadow for that phosphor glow look */
+.terminal-text {
+  text-shadow: 0 0 8px rgba(90, 232, 138, 0.3);
+}
+
+/* Subtle flicker animation for terminal headers */
+@keyframes subtle-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.9; }
+  94% { opacity: 1; }
+}
+
+.terminal-flicker {
+  animation: subtle-flicker 4s infinite;
+}
+
+/* Typing cursor that's more retro */
+@keyframes retro-blink {
+  0%, 49% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(90, 232, 138, 0.5);
+  }
+  50%, 100% {
+    opacity: 0;
+    box-shadow: none;
+  }
+}
+
+.retro-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background-color: var(--color-primary);
+  animation: retro-blink 1s step-end infinite;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 5;
+}
+
+/* Glowing border effect for cards on hover */
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(90, 232, 138, 0.1),
+    0 0 20px rgba(90, 232, 138, 0.08);
+}
+
+/* Boot-up animation for hero text */
+@keyframes boot-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.boot-animation {
+  animation: boot-up 0.6s ease-out forwards;
+}
+
+/* Stagger delays for sequential boot animations */
+.boot-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.boot-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.boot-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.boot-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* ========================================
+   GLOW EFFECTS
+   ======================================== */
+
+/* Primary glow for text */
+.glow-text-primary {
+  text-shadow:
+    0 0 10px rgba(90, 232, 138, 0.5),
+    0 0 20px rgba(90, 232, 138, 0.3),
+    0 0 40px rgba(90, 232, 138, 0.1);
+}
+
+/* Secondary glow for text */
+.glow-text-secondary {
+  text-shadow:
+    0 0 10px rgba(255, 198, 64, 0.5),
+    0 0 20px rgba(255, 198, 64, 0.3),
+    0 0 40px rgba(255, 198, 64, 0.1);
+}
+
+/* Glow border effect */
+.glow-border-primary {
+  box-shadow:
+    0 0 0 1px rgba(90, 232, 138, 0.3),
+    0 0 15px rgba(90, 232, 138, 0.15),
+    0 0 30px rgba(90, 232, 138, 0.1);
+}
+
+.glow-border-secondary {
+  box-shadow:
+    0 0 0 1px rgba(255, 198, 64, 0.3),
+    0 0 15px rgba(255, 198, 64, 0.15),
+    0 0 30px rgba(255, 198, 64, 0.1);
+}
+
+/* Animated pulse glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 5px rgba(90, 232, 138, 0.3),
+      0 0 15px rgba(90, 232, 138, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(90, 232, 138, 0.5),
+      0 0 30px rgba(90, 232, 138, 0.3),
+      0 0 45px rgba(90, 232, 138, 0.1);
+  }
+}
+
+.glow-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glow on hover for buttons */
+.glow-hover-primary {
+  transition: all 0.3s ease;
+}
+
+.glow-hover-primary:hover {
+  box-shadow:
+    0 0 20px rgba(90, 232, 138, 0.4),
+    0 0 40px rgba(90, 232, 138, 0.2),
+    0 0 60px rgba(90, 232, 138, 0.1);
+}
+
+/* Subtle ambient glow for sections */
+.ambient-glow {
+  position: relative;
+}
+
+.ambient-glow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(90, 232, 138, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glowing underline */
+.glow-underline {
+  position: relative;
+}
+
+.glow-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow:
+    0 0 10px rgba(90, 232, 138, 0.8),
+    0 0 20px rgba(90, 232, 138, 0.4);
+}
+
+/* Glowing dot/indicator */
+.glow-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgba(90, 232, 138, 0.8),
+    0 0 20px rgba(90, 232, 138, 0.5);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   ANIMATED TERMINAL EFFECTS
+   ======================================== */
+
+/* Fade in animation for terminal lines */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Scanline sweep animation */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.animate-scan {
+  animation: scan 8s linear infinite;
+}
+
+/* Typing cursor */
+@keyframes typing-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: typing-blink 0.8s step-end infinite;
+}
+
+/* ========================================
+   8-BIT RETRO FONT
+   ======================================== */
+
+.font-8bit {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Smaller 8-bit text for labels */
+.font-8bit-sm {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+/* 8-bit text with glow */
+.font-8bit-glow {
+  font-family: 'Press Start 2P', monospace;
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
 }
