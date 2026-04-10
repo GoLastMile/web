@@ -23,7 +23,7 @@ export default function IntroductionPage() {
       </h1>
 
       <p className="text-on-surface-variant font-mono text-sm md:text-base leading-relaxed mb-12">
-        LastMile is an AI-powered DevOps automation tool that bridges the gap between prototypes and production-ready deployments. We automate the tedious last 20%&mdash;not just once, but on every commit, every PR, every deploy.
+        LastMile is the production-readiness layer for AI-generated code. Cursor, Claude Code, and Copilot get you 80% of the way&mdash;we auto-generate the security, DevOps, and deployment configs that AI misses. On every commit, every PR, every deploy.
       </p>
 
       {/* What is LastMile */}
@@ -76,9 +76,38 @@ export default function IntroductionPage() {
         </div>
       </section>
 
-      {/* Why LastMile */}
+      {/* Why AI-Generated Code Needs LastMile */}
       <section className="mb-12">
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Why LastMile?</h2>
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Why AI-Generated Code Needs LastMile</h2>
+        <p className="text-on-surface-variant font-mono text-sm leading-relaxed mb-6">
+          Cursor, Claude Code, Copilot&mdash;they&apos;re incredible for rapid prototyping. But AI coding assistants optimize for &quot;working code,&quot; not &quot;production-ready code.&quot; Here&apos;s what they consistently miss:
+        </p>
+        <div className="space-y-4 mb-8">
+          <div className="bg-surface-container border-l-2 border-error p-4">
+            <h4 className="font-bold text-sm mb-1">Security Blind Spots</h4>
+            <p className="text-on-surface-variant font-mono text-xs">AI often hardcodes API keys, skips input validation, and misses SQL injection vulnerabilities. 73% of AI-generated apps ship with known security issues.</p>
+          </div>
+          <div className="bg-surface-container border-l-2 border-secondary p-4">
+            <h4 className="font-bold text-sm mb-1">No DevOps Context</h4>
+            <p className="text-on-surface-variant font-mono text-xs">AI doesn&apos;t know your deployment environment. No Dockerfile, no CI/CD pipeline, no environment variable management&mdash;just code that &quot;works locally.&quot;</p>
+          </div>
+          <div className="bg-surface-container border-l-2 border-primary p-4">
+            <h4 className="font-bold text-sm mb-1">Missing Production Patterns</h4>
+            <p className="text-on-surface-variant font-mono text-xs">Error boundaries, structured logging, health checks, rate limiting&mdash;the patterns that keep apps running at 3am are rarely in AI-generated code.</p>
+          </div>
+          <div className="bg-surface-container border-l-2 border-outline-variant p-4">
+            <h4 className="font-bold text-sm mb-1">Zero Test Coverage</h4>
+            <p className="text-on-surface-variant font-mono text-xs">AI writes features, not tests. You ship fast, then spend weeks debugging production issues that a test suite would have caught.</p>
+          </div>
+        </div>
+        <p className="text-on-surface-variant font-mono text-sm leading-relaxed">
+          LastMile bridges this gap. We analyze what AI wrote, identify what&apos;s missing, and auto-generate the production-readiness layer&mdash;on every commit.
+        </p>
+      </section>
+
+      {/* Why LastMile - Stats */}
+      <section className="mb-12">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">By the Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center p-6 bg-surface-container border border-outline-variant/20">
             <div className="text-3xl font-black text-primary mb-2">8</div>

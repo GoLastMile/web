@@ -1,113 +1,208 @@
+"use client";
+
 import Link from "next/link";
 import AnimatedTerminal from "@/components/marketing/AnimatedTerminal";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { Spotlight } from "@/components/ui/spotlight";
+import { HoverCard } from "@/components/ui/card-3d";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { AnimatedGrid } from "@/components/ui/animated-grid";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-surface">
-        {/* Hero Section */}
-        <section className="relative px-4 md:px-8 lg:px-12 py-12 md:py-24 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Headline Content */}
-            <div className="lg:col-span-7 space-y-8 md:space-y-10">
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
-                  [ STATUS: LOCALHOST ]
-                </div>
-                {/* GitHub Stars Badge */}
-                <a
-                  href="https://github.com/lastmile-ai/lastmile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 py-1 px-3 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-colors group"
-                >
-                  <svg className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                  <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
-                  <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
-                </a>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-headline tracking-tighter leading-[0.9] text-white">
-                Your AI wrote the code.<br/><span className="text-primary italic glow-text-primary">Now ship the damn thing.</span>
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
-                AI can write 80% of your app in a day.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}handles the boring 20%&mdash;on every commit, every feature, every deploy.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-4">
-                <Link
-                  href="/pricing"
-                  className="bg-primary text-on-primary px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 group glow-hover-primary glow-border-primary transition-all"
-                >
-                  GET_STARTED &gt;
-                </Link>
-                <Link
-                  href="#how-it-works"
-                  className="border border-outline/20 text-white/80 px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-surface-container hover:border-primary/30 transition-all"
-                >
-                  <span className="text-secondary">$</span>
-                  HOW_IT_WORKS
-                </Link>
-              </div>
-            </div>
+        {/* Hero Section with Animated Background */}
+        <div className="relative">
+          {/* Animated dashed boxes background (baz-style) - positioned above grid but below content */}
+          <AnimatedGrid className="absolute inset-0 pointer-events-none" />
 
-            {/* Animated Terminal */}
-            <div className="lg:col-span-5 relative">
-              <AnimatedTerminal />
-              {/* Background Accent */}
-              <div className="absolute -z-10 -bottom-4 md:-bottom-6 -right-4 md:-right-6 w-full h-full border border-primary/10 opacity-20" />
-            </div>
+          {/* Base grid pattern - lowest layer */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(107, 251, 154, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(107, 251, 154, 0.03) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+              zIndex: 0,
+            }}
+          />
+
+          {/* Gradient orbs */}
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] pointer-events-none" style={{ zIndex: 0 }}>
+            <div
+              className="absolute inset-0 opacity-25 blur-[120px] animate-pulse-slow"
+              style={{
+                background: "radial-gradient(circle at center, rgba(107, 251, 154, 0.6) 0%, transparent 60%)",
+              }}
+            />
           </div>
-        </section>
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none" style={{ zIndex: 0 }}>
+            <div
+              className="absolute inset-0 opacity-20 blur-[100px] animate-pulse-slower"
+              style={{
+                background: "radial-gradient(circle at center, rgba(255, 198, 100, 0.5) 0%, transparent 60%)",
+              }}
+            />
+          </div>
+
+          {/* Spotlight effect on top */}
+          <Spotlight className="relative" spotlightColor="rgba(107, 251, 154, 0.06)">
+
+          <section className="relative px-4 md:px-8 lg:px-12 py-12 md:py-24 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Headline Content */}
+              <div className="lg:col-span-7 space-y-8 md:space-y-10">
+                <BlurFade delay={0}>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
+                      [ STATUS: LOCALHOST ]
+                    </div>
+                    {/* GitHub Stars Badge */}
+                    <a
+                      href="https://github.com/lastmile-ai/lastmile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 py-1 px-3 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-colors group"
+                    >
+                      <svg className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
+                      <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
+                    </a>
+                  </div>
+                </BlurFade>
+                <BlurFade delay={0.1}>
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-headline tracking-tighter leading-[0.9] text-white">
+                    Cursor got you to 80%.<br/><span className="text-primary italic glow-text-primary">We ship the rest.</span>
+                  </h1>
+                </BlurFade>
+                <BlurFade delay={0.2}>
+                  <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
+                    Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
+                  </p>
+                </BlurFade>
+                <BlurFade delay={0.3}>
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-4">
+                    <Link
+                      href="/pricing"
+                      className="relative bg-primary text-on-primary px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 group glow-hover-primary glow-border-primary transition-all overflow-hidden"
+                    >
+                      {/* Shimmer effect */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+                      <span className="relative">GET_STARTED &gt;</span>
+                    </Link>
+                    <Link
+                      href="#how-it-works"
+                      className="border border-outline/20 text-white/80 px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-surface-container hover:border-primary/30 transition-all"
+                    >
+                      <span className="text-secondary">$</span>
+                      HOW_IT_WORKS
+                    </Link>
+                  </div>
+                </BlurFade>
+              </div>
+
+              {/* Animated Terminal */}
+              <div className="lg:col-span-5 relative">
+                <BlurFade delay={0.4} direction="right">
+                  <div className="animate-float" style={{ animationDuration: "6s" }}>
+                    <AnimatedTerminal />
+                  </div>
+                  {/* Background Accent */}
+                  <div className="absolute -z-10 -bottom-4 md:-bottom-6 -right-4 md:-right-6 w-full h-full border border-primary/10 opacity-20" />
+                </BlurFade>
+              </div>
+            </div>
+          </section>
+        </Spotlight>
+        </div>
 
         {/* Gap Categories Section */}
         <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">8 Ways Your Code Is Cooked</h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">TRUST_ISSUES</span>
-            </div>
+            <BlurFade>
+              <div className="flex items-center gap-4">
+                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">8 Ways AI-Generated Code Is Cooked</h2>
+                <div className="h-[1px] flex-grow bg-outline-variant/20" />
+                <span className="font-8bit-sm text-white/30">AI_GAPS</span>
+              </div>
+            </BlurFade>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-primary font-mono text-[10px] mb-2">01</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Security</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">Your API keys are literally in the code. We can see them. Everyone can.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-secondary font-mono text-[10px] mb-2">02</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Testing</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">&quot;It works on my machine&quot; is not a test suite, sorry.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-primary font-mono text-[10px] mb-2">03</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Observability</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">When prod breaks at 3am, console.log won&apos;t save you.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-secondary font-mono text-[10px] mb-2">04</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">CI/CD</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">You&apos;re still doing git push and praying? In 2025?</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-secondary font-mono text-[10px] mb-2">05</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Dependencies</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">847 packages. 12 critical vulnerabilities. No lock file. Classic.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-primary font-mono text-[10px] mb-2">06</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Git</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">That .env file with your passwords? Yeah, it&apos;s in git history forever.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-secondary font-mono text-[10px] mb-2">07</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Database</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">No migrations = &quot;I&apos;ll just drop the table&quot; energy.</p>
-              </div>
-              <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group">
-                <div className="text-primary font-mono text-[10px] mb-2">08</div>
-                <h3 className="text-sm md:text-base font-bold mb-2">Errors</h3>
-                <p className="text-on-surface-variant text-xs leading-relaxed">catch(e) {`{}`} is not error handling, it&apos;s denial.</p>
-              </div>
+              <BlurFade delay={0.05}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group bg-error/5 border-l-2 border-l-error h-full">
+                    <div className="text-error font-mono text-[10px] mb-2">01 &bull; CRITICAL</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Security</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">Your API keys are literally in the code. <NumberTicker value={73} suffix="%" className="text-error font-bold" /> of AI-generated apps ship with vulnerabilities.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.1}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-secondary font-mono text-[10px] mb-2">02</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Testing</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">&quot;It works on my machine&quot; is not a test suite, sorry.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.15}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-primary font-mono text-[10px] mb-2">03</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Observability</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">When prod breaks at 3am, console.log won&apos;t save you.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.2}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-secondary font-mono text-[10px] mb-2">04</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">CI/CD</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">You&apos;re still doing git push and praying? In 2025?</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.25}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-secondary font-mono text-[10px] mb-2">05</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Dependencies</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">847 packages. 12 critical vulnerabilities. No lock file. Classic.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.3}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-primary font-mono text-[10px] mb-2">06</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Git</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">That .env file with your passwords? Yeah, it&apos;s in git history forever.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.35}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-secondary font-mono text-[10px] mb-2">07</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Database</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">No migrations = &quot;I&apos;ll just drop the table&quot; energy.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.4}>
+                <HoverCard className="h-full">
+                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
+                    <div className="text-primary font-mono text-[10px] mb-2">08</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Errors</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">catch(e) {`{}`} is not error handling, it&apos;s denial.</p>
+                  </div>
+                </HoverCard>
+              </BlurFade>
             </div>
           </div>
         </section>
@@ -115,15 +210,18 @@ export default function Home() {
         {/* Before/After Transformation */}
         <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Before &amp; <span className="text-primary glow-text-primary">After</span></h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">TRANSFORM</span>
-            </div>
+            <BlurFade>
+              <div className="flex items-center gap-4">
+                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Before &amp; <span className="text-primary glow-text-primary">After</span></h2>
+                <div className="h-[1px] flex-grow bg-outline-variant/20" />
+                <span className="font-8bit-sm text-white/30">TRANSFORM</span>
+              </div>
+            </BlurFade>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-outline-variant/20">
-              {/* Before */}
-              <div className="bg-surface border-b lg:border-b-0 lg:border-r border-outline-variant/20">
+            <BlurFade delay={0.1}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-outline-variant/20">
+                {/* Before */}
+                <div className="bg-surface border-b lg:border-b-0 lg:border-r border-outline-variant/20">
                 <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 bg-surface-container-low border-b border-outline-variant/20">
                   <div className="flex items-center gap-3 md:gap-4">
                     <span className="font-mono text-xs font-bold text-error">BEFORE</span>
@@ -216,42 +314,61 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </BlurFade>
           </div>
         </section>
 
         {/* The 4-Step Escape Plan */}
         <section id="how-it-works" className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">The 4-Step <span className="text-primary glow-text-primary">Escape Plan</span></h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">EXECUTE</span>
-            </div>
+            <BlurFade>
+              <div className="flex items-center gap-4">
+                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">The 4-Step <span className="text-primary glow-text-primary">Escape Plan</span></h2>
+                <div className="h-[1px] flex-grow bg-outline-variant/20" />
+                <span className="font-8bit-sm text-white/30">EXECUTE</span>
+              </div>
+            </BlurFade>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
-              <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow">
-                <div className="text-4xl font-black text-primary glow-text-primary mb-4">01</div>
-                <h3 className="text-lg md:text-xl font-bold mb-4">Roast</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We scan your code and tell you exactly how cooked it is. No sugarcoating. You&apos;ll get a score out of 100.</p>
-                <div className="font-mono text-xs text-primary">lastmile analyze</div>
-              </div>
-              <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow">
-                <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">02</div>
-                <h3 className="text-lg md:text-xl font-bold mb-4">Fix</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We auto-generate the boring stuff. Dockerfiles, CI configs, error handling&mdash;all the things you &quot;planned to add later.&quot;</p>
-                <div className="font-mono text-xs text-secondary">lastmile fix</div>
-              </div>
-              <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow">
-                <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
-                <h3 className="text-lg md:text-xl font-bold mb-4">Wire Up</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Environment variables, secrets, deployment configs. The stuff you always forget until 2am on launch day.</p>
-                <div className="font-mono text-xs text-primary">lastmile configure</div>
-              </div>
-              <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow">
-                <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
-                <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Railway or Vercel. Your app is live. Tell your mom you&apos;re a real developer now.</p>
-                <div className="font-mono text-xs text-secondary">lastmile ship</div>
-              </div>
+              <BlurFade delay={0.05}>
+                <HoverCard>
+                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                    <div className="text-4xl font-black text-primary glow-text-primary mb-4">01</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Roast</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We scan your code and tell you exactly how cooked it is. No sugarcoating. You&apos;ll get a score out of 100.</p>
+                    <div className="font-mono text-xs text-primary">lastmile analyze</div>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.1}>
+                <HoverCard>
+                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                    <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">02</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Fix</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We auto-generate the boring stuff. Dockerfiles, CI configs, error handling&mdash;all the things you &quot;planned to add later.&quot;</p>
+                    <div className="font-mono text-xs text-secondary">lastmile fix</div>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.15}>
+                <HoverCard>
+                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                    <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Wire Up</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Environment variables, secrets, deployment configs. The stuff you always forget until 2am on launch day.</p>
+                    <div className="font-mono text-xs text-primary">lastmile configure</div>
+                  </div>
+                </HoverCard>
+              </BlurFade>
+              <BlurFade delay={0.2}>
+                <HoverCard>
+                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                    <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Railway or Vercel. Your app is live. Tell your mom you&apos;re a real developer now.</p>
+                    <div className="font-mono text-xs text-secondary">lastmile ship</div>
+                  </div>
+                </HoverCard>
+              </BlurFade>
             </div>
 
             {/* Continuous Value Banner */}
@@ -272,8 +389,67 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Who's This For */}
+        {/* DevOps Automation Section - NEW */}
         <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">The DevOps Layer for <span className="text-primary glow-text-primary">AI Code</span></h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+              <span className="font-8bit-sm text-white/30">AUTOMATE</span>
+            </div>
+
+            <p className="text-on-surface-variant font-mono text-sm md:text-base max-w-3xl">
+              AI coding tools don&apos;t set up your infrastructure. Every project needs the same DevOps boilerplate&mdash;LastMile generates it automatically, tailored to your stack.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">DOCKERFILE</div>
+                <h3 className="font-bold text-lg mb-2">Container Ready</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Multi-stage Dockerfiles optimized for your framework. Node, Python, Go&mdash;production-ready images in seconds.
+                </p>
+              </div>
+              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">CI/CD_PIPELINE</div>
+                <h3 className="font-bold text-lg mb-2">GitHub Actions</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Lint, test, build, deploy. Workflows that run on every PR. No more &quot;git push and pray.&quot;
+                </p>
+              </div>
+              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">ENV_CONFIG</div>
+                <h3 className="font-bold text-lg mb-2">Secrets Management</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Auto-extract hardcoded secrets. Generate .env.example. Configure deployment platform secrets.
+                </p>
+              </div>
+              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">ONE_CLICK</div>
+                <h3 className="font-bold text-lg mb-2">Deploy Anywhere</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Railway, Vercel&mdash;one command. Environment variables, health checks, and monitoring configured automatically.
+                </p>
+              </div>
+            </div>
+
+            {/* Standardized Workflows Banner */}
+            <div className="mt-8 p-6 border border-secondary/20 bg-secondary/5">
+              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-secondary rounded-full" />
+                  <span className="font-mono text-xs text-secondary uppercase tracking-widest">STANDARDIZED</span>
+                </div>
+                <p className="text-on-surface-variant font-mono text-sm flex-grow">
+                  Every AI-generated project gets the same production-grade setup. No more reinventing the wheel on every deploy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who's This For */}
+        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
             <div className="flex items-center gap-4">
               <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Who&apos;s This <span className="text-secondary glow-text-secondary">Actually For</span>?</h2>
@@ -281,11 +457,13 @@ export default function Home() {
               <span className="font-8bit-sm text-white/30">PLAYERS</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-                <div className="text-primary font-mono text-xs mb-4">THE_PROFESSIONALS</div>
-                <h3 className="font-bold text-lg mb-3">Real Developers</h3>
+              {/* Featured: AI-First Builders - most prominent */}
+              <div className="bg-surface-container border-2 border-primary/40 p-6 hover-glow transition-all relative">
+                <div className="absolute -top-2 right-4 bg-primary text-on-primary font-mono text-[8px] px-2 py-0.5">PRIMARY_TARGET</div>
+                <div className="text-primary font-mono text-xs mb-4">CURSOR_CLAUDE_COPILOT</div>
+                <h3 className="font-bold text-lg mb-3">AI-First Builders</h3>
                 <p className="text-on-surface-variant font-mono text-sm">
-                  You know what you&apos;re doing. Let LastMile handle the checklist on every PR so you can focus on the interesting stuff.
+                  Using Cursor, Claude Code, or Copilot to ship fast? We catch what AI misses: security holes, missing error handling, no tests. Every time.
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
@@ -296,10 +474,10 @@ export default function Home() {
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-                <div className="text-primary font-mono text-xs mb-4">THE_ACCELERATED</div>
-                <h3 className="font-bold text-lg mb-3">AI-First Builders</h3>
+                <div className="text-primary font-mono text-xs mb-4">THE_PROFESSIONALS</div>
+                <h3 className="font-bold text-lg mb-3">Real Developers</h3>
                 <p className="text-on-surface-variant font-mono text-sm">
-                  Every AI-generated feature needs guardrails. We catch what Claude and Cursor miss, every time.
+                  You know what you&apos;re doing. Let LastMile handle the checklist on every PR so you can focus on the interesting stuff.
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
@@ -427,9 +605,9 @@ export default function Home() {
             SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT{"\n"}
             &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Still on <span className="font-mono text-secondary glow-text-secondary">localhost:3000</span>?</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Cursor got you here.<br/><span className="font-mono text-primary glow-text-primary">LastMile ships it.</span></h2>
           <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-xl mx-auto">
-            Ship today. Stay production-ready tomorrow. LastMile runs on every commit so you never have to think about it again.
+            Secure your AI-generated code. Auto-generate DevOps configs. Deploy in one command. LastMile runs on every commit so you never have to think about it again.
           </p>
           <div className="flex justify-center gap-2 font-mono text-xs text-primary bg-primary/5 py-3 md:py-4 px-4 md:px-8 inline-flex border border-primary/20 glow-border-primary mb-8">
             <span className="text-secondary glow-text-secondary">$</span>
