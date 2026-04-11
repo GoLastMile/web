@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     "AI writes 80% of your app in a day. LastMile handles the boring 20% on every commit, every feature, every deploy. Stay production-ready as you iterate.",
   keywords: ["devops", "ai", "deployment", "production", "cli", "mcp", "automation"],
   authors: [{ name: "LastMile" }],
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
   openGraph: {
     title: "LastMile - Ship AI-Generated Code to Production",
     description: "AI writes 80% of your app in a day. LastMile handles the boring 20% on every commit, every feature, every deploy.",

@@ -29,7 +29,7 @@ const features = [
   {
     icon: "rocket",
     title: "SHIP_TOOL",
-    description: "Deploy to Railway or Vercel without leaving your AI coding environment. One natural language command to production.",
+    description: "Deploy to LastMile Cloud without leaving your AI coding environment. Zero config, database included, one command to production.",
   },
 ];
 
@@ -179,7 +179,7 @@ export default function IntegrationsPage() {
                   <input
                     type="text"
                     className="bg-transparent border-none focus:ring-0 focus:outline-none w-full font-mono text-sm text-primary placeholder:text-white/20"
-                    placeholder="Apply all fixes and deploy to Railway..."
+                    placeholder="Apply all fixes and ship to production..."
                   />
                   <span className="terminal-cursor hidden sm:inline-block" />
                   <button className="bg-primary px-3 md:px-4 py-1 text-on-primary font-black text-xs glow-hover-primary glow-border-primary transition-all whitespace-nowrap">

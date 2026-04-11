@@ -3,41 +3,58 @@ import Link from "next/link";
 const pricingPlans = [
   {
     tier: "01",
-    name: "Broke",
+    name: "Free",
     price: "$0",
     features: [
-      { text: "Unlimited roasts (analyze)", included: true },
-      { text: "Know your score (0-100)", included: true },
-      { text: "See all 8 categories of shame", included: true },
-      { text: "Community support", included: true },
+      { text: "2 projects", included: true },
+      { text: "Full gap detection (18 categories)", included: true },
+      { text: "Production readiness score", included: true },
+      { text: "Fix suggestions (view only)", included: true },
+      { text: "Hosting & deployment", included: false },
     ],
-    cta: "START_GETTING_ROASTED",
+    cta: "START_ANALYZING",
     featured: false,
   },
   {
     tier: "02",
-    name: "Serious",
-    price: "$29",
+    name: "Launch",
+    price: "$39",
     features: [
-      { text: "Everything in Broke", included: true },
-      { text: "Auto-fix on every commit", included: true },
-      { text: "CI/CD pipeline integration", included: true },
-      { text: "Deploy to Railway/Vercel", included: true },
+      { text: "5 projects + hosting", included: true },
+      { text: "Auto-fix all issues", included: true },
+      { text: "Zero-config deployment", included: true },
+      { text: "Database included (1GB)", included: true },
+      { text: "Custom domains + SSL", included: true },
     ],
-    cta: "GET_SERIOUS",
+    cta: "START_SHIPPING",
     featured: true,
   },
   {
     tier: "03",
-    name: "Squad",
+    name: "Pro",
     price: "$79",
     features: [
-      { text: "Everything in Serious", included: true },
-      { text: "5 team seats", included: true },
-      { text: "Shared configs & standards", included: true },
+      { text: "15 projects + hosting", included: true },
+      { text: "5 databases (5GB each)", included: true },
+      { text: "Priority builds", included: true },
+      { text: "Preview deployments", included: true },
       { text: "Priority support", included: true },
     ],
-    cta: "SQUAD_UP",
+    cta: "GO_PRO",
+    featured: false,
+  },
+  {
+    tier: "04",
+    name: "Team",
+    price: "$149",
+    features: [
+      { text: "Unlimited projects", included: true },
+      { text: "5 team members included", included: true },
+      { text: "Shared configs & standards", included: true },
+      { text: "Unlimited databases (50GB)", included: true },
+      { text: "Slack support", included: true },
+    ],
+    cta: "TEAM_UP",
     featured: false,
   },
 ];
@@ -68,14 +85,14 @@ export default function PricingPage() {
             </div>
             <div className="lg:col-span-5 pb-4">
               <p className="text-base md:text-lg text-on-surface-variant font-mono leading-relaxed opacity-80">
-                Get roasted for free. Pay when you want the fixes. No surprise charges. No &quot;enterprise contact us&quot; nonsense.
+                Analyze for free. Pay when you want auto-fixes and hosting. No surprise charges. No &quot;enterprise contact us&quot; nonsense.
               </p>
             </div>
           </div>
         </section>
 
         {/* Pricing Cards */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0">
           {pricingPlans.map((plan) => (
             <div
               key={plan.tier}
@@ -130,24 +147,24 @@ export default function PricingPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-              <div className="text-primary font-mono text-xs mb-3">THE_ROAST</div>
-              <h3 className="font-bold mb-2">8 Categories of Truth</h3>
-              <p className="text-on-surface-variant font-mono text-sm">Security, Testing, Observability, CI/CD, Dependencies, Git, Database, Error Handling. Checked on every commit.</p>
+              <div className="text-primary font-mono text-xs mb-3">ANALYZE</div>
+              <h3 className="font-bold mb-2">18 Gap Categories</h3>
+              <p className="text-on-surface-variant font-mono text-sm">Security, Testing, Observability, CI/CD, Dependencies, Git, Database, Error Handling, and more. Full production audit.</p>
             </div>
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-              <div className="text-secondary font-mono text-xs mb-3">THE_SCORE</div>
-              <h3 className="font-bold mb-2">Track Your Progress</h3>
-              <p className="text-on-surface-variant font-mono text-sm">0-100 score that trends over time. Watch your codebase get healthier with every PR.</p>
-            </div>
-            <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-              <div className="text-primary font-mono text-xs mb-3">THE_GUARD</div>
-              <h3 className="font-bold mb-2">CI/CD Integration</h3>
-              <p className="text-on-surface-variant font-mono text-sm">Runs on every pull request. Catches regressions before they hit production. Your automated quality gate.</p>
-            </div>
-            <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-              <div className="text-secondary font-mono text-xs mb-3">THE_FIX</div>
+              <div className="text-secondary font-mono text-xs mb-3">FIX</div>
               <h3 className="font-bold mb-2">Auto-Generated Fixes</h3>
-              <p className="text-on-surface-variant font-mono text-sm">Templates, transformations, AI-generated patches. Applied automatically or reviewed first&mdash;your call.</p>
+              <p className="text-on-surface-variant font-mono text-sm">Templates, transformations, AI-generated patches. One click to apply all fixes. No manual work.</p>
+            </div>
+            <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
+              <div className="text-primary font-mono text-xs mb-3">DEPLOY</div>
+              <h3 className="font-bold mb-2">Zero-Config Hosting</h3>
+              <p className="text-on-surface-variant font-mono text-sm">One command to production. Database included. SSL automatic. Custom domains. No DevOps required.</p>
+            </div>
+            <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
+              <div className="text-secondary font-mono text-xs mb-3">DOMAINS</div>
+              <h3 className="font-bold mb-2">Buy Domains Instantly</h3>
+              <p className="text-on-surface-variant font-mono text-sm">.com from $15/year. Auto-configured DNS, SSL, CDN. No GoDaddy upsells. Ship with a real domain in minutes.</p>
             </div>
           </div>
         </section>
@@ -191,8 +208,8 @@ export default function PricingPage() {
             </Link>
 
             <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-4 md:gap-12 font-mono text-[10px] text-white/30 uppercase tracking-[0.2em]">
-              <span>Free_To_Roast</span>
-              <span>Pay_For_Fixes</span>
+              <span>Free_To_Analyze</span>
+              <span>Pay_To_Ship</span>
               <span>No_Strings</span>
             </div>
           </div>

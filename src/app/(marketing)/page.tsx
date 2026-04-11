@@ -1,123 +1,107 @@
 "use client";
 
 import Link from "next/link";
-import AnimatedTerminal from "@/components/marketing/AnimatedTerminal";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { Spotlight } from "@/components/ui/spotlight";
 import { HoverCard } from "@/components/ui/card-3d";
 import { NumberTicker } from "@/components/ui/number-ticker";
-import { AnimatedGrid } from "@/components/ui/animated-grid";
+import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
+import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
+import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-surface">
         {/* Hero Section with Animated Background */}
-        <div className="relative">
-          {/* Animated dashed boxes background (baz-style) - positioned above grid but below content */}
-          <AnimatedGrid className="absolute inset-0 pointer-events-none" />
-
-          {/* Base grid pattern - lowest layer */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(107, 251, 154, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(107, 251, 154, 0.03) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-              zIndex: 0,
-            }}
+        <div className="relative overflow-hidden min-h-screen flex flex-col">
+          {/* Interactive Grid Pattern - Magic UI */}
+          <InteractiveGridPattern
+            className="absolute inset-0 z-10 opacity-30"
+            width={40}
+            height={40}
+            squares={[50, 30]}
           />
 
-          {/* Gradient orbs */}
-          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] pointer-events-none" style={{ zIndex: 0 }}>
-            <div
-              className="absolute inset-0 opacity-25 blur-[120px] animate-pulse-slow"
-              style={{
-                background: "radial-gradient(circle at center, rgba(107, 251, 154, 0.6) 0%, transparent 60%)",
-              }}
-            />
-          </div>
-          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] pointer-events-none" style={{ zIndex: 0 }}>
-            <div
-              className="absolute inset-0 opacity-20 blur-[100px] animate-pulse-slower"
-              style={{
-                background: "radial-gradient(circle at center, rgba(255, 198, 100, 0.5) 0%, transparent 60%)",
-              }}
-            />
-          </div>
-
-          {/* Spotlight effect on top */}
-          <Spotlight className="relative" spotlightColor="rgba(107, 251, 154, 0.06)">
-
-          <section className="relative px-4 md:px-8 lg:px-12 py-12 md:py-24 max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Headline Content */}
-              <div className="lg:col-span-7 space-y-8 md:space-y-10">
-                <BlurFade delay={0}>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
-                      [ STATUS: LOCALHOST ]
+          {/* Hero content */}
+          <div className="relative z-20 flex-1 flex items-center pointer-events-none">
+            <section className="relative px-4 md:px-8 lg:px-12 py-12 md:py-16 max-w-7xl mx-auto w-full pointer-events-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                {/* Left: Headline Content */}
+                <div className="lg:col-span-6 space-y-6 md:space-y-8">
+                  <BlurFade delay={0}>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
+                        [ STATUS: LOCALHOST ]
+                      </div>
+                      {/* GitHub Stars Badge */}
+                      <a
+                        href="https://github.com/lastmile-ai/lastmile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 py-1 px-3 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-colors group"
+                      >
+                        <svg className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
+                        <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
+                      </a>
                     </div>
-                    {/* GitHub Stars Badge */}
-                    <a
-                      href="https://github.com/lastmile-ai/lastmile"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 py-1 px-3 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-colors group"
-                    >
-                      <svg className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                      <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
-                      <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
-                    </a>
-                  </div>
-                </BlurFade>
-                <BlurFade delay={0.1}>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-headline tracking-tighter leading-[0.9] text-white">
-                    Cursor got you to 80%.<br/><span className="text-primary italic glow-text-primary">We ship the rest.</span>
-                  </h1>
-                </BlurFade>
-                <BlurFade delay={0.2}>
-                  <p className="text-lg md:text-xl lg:text-2xl text-on-surface-variant max-w-xl leading-relaxed">
-                    Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
-                  </p>
-                </BlurFade>
-                <BlurFade delay={0.3}>
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-4">
-                    <Link
-                      href="/pricing"
-                      className="relative bg-primary text-on-primary px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 group glow-hover-primary glow-border-primary transition-all overflow-hidden"
-                    >
-                      {/* Shimmer effect */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-                      <span className="relative">GET_STARTED &gt;</span>
-                    </Link>
-                    <Link
-                      href="#how-it-works"
-                      className="border border-outline/20 text-white/80 px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-surface-container hover:border-primary/30 transition-all"
-                    >
-                      <span className="text-secondary">$</span>
-                      HOW_IT_WORKS
-                    </Link>
-                  </div>
-                </BlurFade>
-              </div>
+                  </BlurFade>
 
-              {/* Animated Terminal */}
-              <div className="lg:col-span-5 relative">
-                <BlurFade delay={0.4} direction="right">
-                  <div className="animate-float" style={{ animationDuration: "6s" }}>
-                    <AnimatedTerminal />
-                  </div>
-                  {/* Background Accent */}
-                  <div className="absolute -z-10 -bottom-4 md:-bottom-6 -right-4 md:-right-6 w-full h-full border border-primary/10 opacity-20" />
-                </BlurFade>
+                  <BlurFade delay={0.1}>
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black font-headline tracking-tighter leading-[0.95] text-white">
+                      AI coding got you to 80%.
+                      <br className="mb-2" />
+                      <span className="block mt-3">
+                      <AnimatedGradientText
+                        className="italic text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black"
+                        colorFrom="#6bfb9a"
+                        colorTo="#ffc664"
+                        speed={1.5}
+                      >
+                        We production-proof it. Then ship it.
+                      </AnimatedGradientText>
+                      </span>
+                    </h1>
+                  </BlurFade>
+
+                  <BlurFade delay={0.2}>
+                    <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                      Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
+                    </p>
+                  </BlurFade>
+
+                  <BlurFade delay={0.3}>
+                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-2">
+                      <Link
+                        href="/pricing"
+                        className="relative bg-primary text-on-primary px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 group glow-hover-primary glow-border-primary transition-all overflow-hidden"
+                      >
+                        {/* Shimmer effect */}
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+                        <span className="relative">GET_STARTED &gt;</span>
+                      </Link>
+                      <Link
+                        href="#how-it-works"
+                        className="border border-outline/20 text-white/80 px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-surface-container hover:border-primary/30 transition-all"
+                      >
+                        <span className="text-secondary">$</span>
+                        HOW_IT_WORKS
+                      </Link>
+                    </div>
+                  </BlurFade>
+                </div>
+
+                {/* Right: Terminal Demo */}
+                <div className="lg:col-span-6 relative">
+                  <BlurFade delay={0.4}>
+                    <LastMileTerminalDemo />
+                    <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full border border-primary/10 opacity-20" />
+                  </BlurFade>
+                </div>
               </div>
-            </div>
-          </section>
-        </Spotlight>
+            </section>
+          </div>
         </div>
 
         {/* Gap Categories Section */}
@@ -344,7 +328,7 @@ export default function Home() {
                   <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
                     <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">02</div>
                     <h3 className="text-lg md:text-xl font-bold mb-4">Fix</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We auto-generate the boring stuff. Dockerfiles, CI configs, error handling&mdash;all the things you &quot;planned to add later.&quot;</p>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We auto-fix the production gaps. Error handling, security issues, missing configs&mdash;all the things you &quot;planned to add later.&quot;</p>
                     <div className="font-mono text-xs text-secondary">lastmile fix</div>
                   </div>
                 </HoverCard>
@@ -353,9 +337,9 @@ export default function Home() {
                 <HoverCard>
                   <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
                     <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Wire Up</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Environment variables, secrets, deployment configs. The stuff you always forget until 2am on launch day.</p>
-                    <div className="font-mono text-xs text-primary">lastmile configure</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Connect</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Database provisioned. Secrets extracted and secured. Custom domain configured. All automatic.</p>
+                    <div className="font-mono text-xs text-primary">lastmile connect</div>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -364,7 +348,7 @@ export default function Home() {
                   <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
                     <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
                     <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Railway or Vercel. Your app is live. Tell your mom you&apos;re a real developer now.</p>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Zero config. Database included. Your app is live. Tell your mom you&apos;re a real developer now.</p>
                     <div className="font-mono text-xs text-secondary">lastmile ship</div>
                   </div>
                 </HoverCard>
@@ -379,69 +363,69 @@ export default function Home() {
                   <span className="font-mono text-xs text-primary uppercase tracking-widest">CONTINUOUS</span>
                 </div>
                 <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                  Add to your CI/CD pipeline. LastMile runs on every PR, catches regressions, and keeps your score from slipping as your team ships new features.
+                  Every deploy runs analysis automatically. Your production score updates in real-time. Regressions caught before they go live.
                 </p>
-                <Link href="/docs/ci-cd" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
-                  SETUP_CI &gt;
+                <Link href="/docs/analysis" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
+                  LEARN_MORE &gt;
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* DevOps Automation Section - NEW */}
+        {/* Zero DevOps Section */}
         <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
             <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">The DevOps Layer for <span className="text-primary glow-text-primary">AI Code</span></h2>
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Zero <span className="text-primary glow-text-primary">DevOps</span> Required</h2>
               <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">AUTOMATE</span>
+              <span className="font-8bit-sm text-white/30">HANDLED</span>
             </div>
 
             <p className="text-on-surface-variant font-mono text-sm md:text-base max-w-3xl">
-              AI coding tools don&apos;t set up your infrastructure. Every project needs the same DevOps boilerplate&mdash;LastMile generates it automatically, tailored to your stack.
+              AI coding tools don&apos;t set up your infrastructure. With LastMile Cloud, you don&apos;t have to either. We handle everything behind the scenes.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">DOCKERFILE</div>
-                <h3 className="font-bold text-lg mb-2">Container Ready</h3>
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">BUILDS</div>
+                <h3 className="font-bold text-lg mb-2">Auto-Detected</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Multi-stage Dockerfiles optimized for your framework. Node, Python, Go&mdash;production-ready images in seconds.
+                  We detect your stack and build automatically. Next.js, Vite, Astro, Express&mdash;no config files needed.
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">CI/CD_PIPELINE</div>
-                <h3 className="font-bold text-lg mb-2">GitHub Actions</h3>
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DATABASE</div>
+                <h3 className="font-bold text-lg mb-2">Provisioned</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Lint, test, build, deploy. Workflows that run on every PR. No more &quot;git push and pray.&quot;
+                  Database created and connected automatically. Migrations run on deploy. No connection strings to manage.
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">ENV_CONFIG</div>
-                <h3 className="font-bold text-lg mb-2">Secrets Management</h3>
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">SSL_CDN</div>
+                <h3 className="font-bold text-lg mb-2">Automatic</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Auto-extract hardcoded secrets. Generate .env.example. Configure deployment platform secrets.
+                  HTTPS certificates provisioned instantly. CDN delivers your app from 300+ edge locations worldwide.
                 </p>
               </div>
               <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">ONE_CLICK</div>
-                <h3 className="font-bold text-lg mb-2">Deploy Anywhere</h3>
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DOMAINS</div>
+                <h3 className="font-bold text-lg mb-2">One Click</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Railway, Vercel&mdash;one command. Environment variables, health checks, and monitoring configured automatically.
+                  Buy a domain for $15/year. DNS configured automatically. Live on your custom domain in minutes.
                 </p>
               </div>
             </div>
 
-            {/* Standardized Workflows Banner */}
+            {/* Zero Config Banner */}
             <div className="mt-8 p-6 border border-secondary/20 bg-secondary/5">
               <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-secondary rounded-full" />
-                  <span className="font-mono text-xs text-secondary uppercase tracking-widest">STANDARDIZED</span>
+                  <span className="font-mono text-xs text-secondary uppercase tracking-widest">ZERO_CONFIG</span>
                 </div>
                 <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                  Every AI-generated project gets the same production-grade setup. No more reinventing the wheel on every deploy.
+                  No Dockerfiles. No CI/CD pipelines. No environment variable juggling. Just ship.
                 </p>
               </div>
             </div>
@@ -576,7 +560,7 @@ export default function Home() {
               <div className="bg-surface border border-outline-variant/20 p-5">
                 <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DEPLOY</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Vercel", "Railway"].map((deploy) => (
+                  {["LastMile Cloud", "Vercel", "Railway"].map((deploy) => (
                     <span key={deploy} className="bg-surface-container px-2 py-1 text-xs font-mono text-primary">{deploy}</span>
                   ))}
                 </div>
@@ -605,9 +589,9 @@ export default function Home() {
             SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT{"\n"}
             &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Cursor got you here.<br/><span className="font-mono text-primary glow-text-primary">LastMile ships it.</span></h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Still on <span className="font-mono text-primary glow-text-primary">localhost:3000</span>?</h2>
           <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-xl mx-auto">
-            Secure your AI-generated code. Auto-generate DevOps configs. Deploy in one command. LastMile runs on every commit so you never have to think about it again.
+            LastMile analyzes your AI-generated code, fixes production gaps, and deploys it — database included, zero config.
           </p>
           <div className="flex justify-center gap-2 font-mono text-xs text-primary bg-primary/5 py-3 md:py-4 px-4 md:px-8 inline-flex border border-primary/20 glow-border-primary mb-8">
             <span className="text-secondary glow-text-secondary">$</span>

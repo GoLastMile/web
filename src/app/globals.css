@@ -771,3 +771,65 @@ body {
 .animate-node-blink {
   animation: node-blink 4s ease-in-out infinite;
 }
+
+/* ========================================
+   MAGIC UI COMPONENT ANIMATIONS
+   ======================================== */
+
+/* Orbiting Circles Animation */
+@keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * -1px)) rotate(calc(var(--angle) * -1deg));
+  }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * -1px)) rotate(calc((var(--angle) + 360) * -1deg));
+  }
+}
+
+.animate-orbit {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  top: 50%;
+  left: 50%;
+  margin-left: calc(var(--icon-size) * -0.5);
+  margin-top: calc(var(--icon-size) * -0.5);
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+
+/* Animated Gradient Text */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s linear infinite;
+}
+
+/* Border Beam Animation */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-beam-spin {
+  from {
+    --border-angle: 0deg;
+  }
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.animate-border-beam {
+  animation: border-beam-spin var(--beam-duration, 12s) linear infinite;
+  animation-delay: var(--beam-delay, 0s);
+}
