@@ -77,12 +77,12 @@ export default function Home() {
                   </BlurFade>
 
                   <BlurFade delay={0.1}>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black font-headline tracking-tighter leading-[0.95] text-white">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black font-headline tracking-tighter leading-[0.95] text-white">
                       AI coding got you to 80%.
                       <br className="mb-2" />
                       <span className="block mt-3">
                       <AnimatedGradientText
-                        className="italic text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black"
+                        className="italic text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black"
                         colorFrom="#6bfb9a"
                         colorTo="#ffc664"
                         speed={1.5}
@@ -94,7 +94,7 @@ export default function Home() {
                   </BlurFade>
 
                   <BlurFade delay={0.2}>
-                    <p className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                    <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
                       Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
                     </p>
                   </BlurFade>

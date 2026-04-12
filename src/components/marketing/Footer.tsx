@@ -18,7 +18,6 @@ const footerSections: FooterSection[] = [
     title: "PRODUCT",
     links: [
       { label: "Features", href: "/#how-it-works" },
-      { label: "Pricing", href: "/pricing" },
       { label: "CLI Install", href: "/docs/cli" },
       { label: "Changelog", href: "/changelog" },
     ],
@@ -149,8 +148,8 @@ export default function Footer() {
             © {new Date().getFullYear()} LastMile. All rights reserved. Built with caffeine and questionable decisions.
           </p>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="font-8bit-sm text-white/30">ONLINE</span>
+            <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+            <span className="font-8bit-sm text-secondary/70">DEPLOYING...</span>
           </div>
         </div>
       </div>

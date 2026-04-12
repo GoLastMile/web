@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ShineBorder } from "@/components/magicui/shine-border";
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -52,38 +53,44 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-grow">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 font-mono text-sm">
-            &gt;
-          </span>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@example.com"
-            className="w-full bg-surface-container border border-outline-variant/30 px-4 py-3 pl-8 font-mono text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary/50 transition-colors"
-            disabled={status === "loading"}
-          />
+    <div className="relative border border-outline-variant/30 shadow-xl shadow-white/5">
+      <ShineBorder
+        shineColor={["#5ae88a", "#ffc640"]}
+        borderWidth={1}
+        duration={10}
+      />
+      <div className="bg-surface-container p-4">
+        <div className="mb-3">
+          <h3 className="text-sm font-bold text-white mb-0.5">Get Early Access</h3>
+          <p className="text-xs text-white/50">
+            Be first to know when we launch.
+          </p>
         </div>
-        <button
-          type="submit"
-          disabled={status === "loading" || !email}
-          className="relative bg-primary text-on-primary px-6 py-3 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 glow-hover-primary glow-border-primary transition-all overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-          <span className="relative">
-            {status === "loading" ? "JOINING..." : "NOTIFY_ME >"}
-          </span>
-        </button>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              className="flex-1 bg-surface-container-low border border-outline-variant/30 px-3 py-2 font-mono text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary/50 transition-colors"
+              disabled={status === "loading"}
+            />
+            <button
+              type="submit"
+              disabled={status === "loading" || !email}
+              className="bg-primary text-on-primary px-4 py-2 font-mono font-bold text-xs uppercase tracking-wide transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 whitespace-nowrap"
+            >
+              {status === "loading" ? "..." : "Notify Me"}
+            </button>
+          </div>
+          {status === "error" && (
+            <p className="text-error font-mono text-xs">{message}</p>
+          )}
+        </form>
       </div>
-      {status === "error" && (
-        <p className="text-error font-mono text-xs">{message}</p>
-      )}
-      <p className="text-white/30 font-mono text-xs">
-        Get notified when LastMile launches. No spam, just one email.
-      </p>
-    </form>
+    </div>
   );
 }

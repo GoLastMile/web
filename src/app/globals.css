@@ -833,3 +833,20 @@ body {
   animation: border-beam-spin var(--beam-duration, 12s) linear infinite;
   animation-delay: var(--beam-delay, 0s);
 }
+
+/* Shine Border Animation */
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-shine {
+  animation: shine var(--duration, 14s) infinite linear;
+}

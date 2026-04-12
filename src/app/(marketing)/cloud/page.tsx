@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { HoverCard } from "@/components/ui/card-3d";
 import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
+import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 import {
   SiNextdotjs,
   SiRemix,
@@ -198,31 +198,10 @@ export default function CloudPage() {
         </div>
       </section>
 
-      {/* Pricing Teaser */}
-      <section className="max-w-4xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
+      {/* Newsletter Signup */}
+      <section className="max-w-sm mx-auto px-4 md:px-8 mb-16 md:mb-24">
         <BlurFade delay={0.6}>
-          <div className="bg-surface-container border border-primary/20 p-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-black font-headline tracking-tight mb-4">
-              Start at <span className="text-primary glow-text-primary">$0</span>
-            </h2>
-            <p className="text-on-surface-variant font-mono text-sm mb-6 max-w-lg mx-auto">
-              Analyze for free. Pay $39/mo when you&apos;re ready to ship. Database, SSL, CDN, and auto-fixes included.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/pricing"
-                className="bg-primary text-on-primary px-8 py-4 font-mono font-bold text-sm uppercase tracking-wide glow-hover-primary glow-border-primary transition-all"
-              >
-                VIEW_PRICING &gt;
-              </Link>
-              <Link
-                href="/docs"
-                className="border border-outline/20 text-white/80 px-8 py-4 font-mono font-bold text-sm uppercase tracking-wide hover:bg-surface-container hover:border-primary/30 transition-all"
-              >
-                READ_DOCS
-              </Link>
-            </div>
-          </div>
+          <NewsletterSignup />
         </BlurFade>
       </section>
 
