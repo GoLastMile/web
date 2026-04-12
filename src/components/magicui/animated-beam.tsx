@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useId, useState, type RefObject } from "react"
-import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -19,8 +18,6 @@ export interface AnimatedBeamProps {
   gradientStopColor?: string
   delay?: number
   duration?: number
-  repeat?: number
-  repeatDelay?: number
   startXOffset?: number
   startYOffset?: number
   endXOffset?: number
@@ -41,8 +38,6 @@ export function AnimatedBeam({
   pathOpacity = 0.2,
   gradientStartColor = "#6bfb9a",
   gradientStopColor = "#ffc664",
-  repeat = Infinity,
-  repeatDelay = 0,
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
@@ -51,20 +46,6 @@ export function AnimatedBeam({
   const id = useId()
   const [pathD, setPathD] = useState("")
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 })
-
-  const gradientCoordinates = reverse
-    ? {
-        x1: ["90%", "-10%"],
-        x2: ["100%", "0%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
-      }
-    : {
-        x1: ["10%", "110%"],
-        x2: ["0%", "100%"],
-        y1: ["0%", "0%"],
-        y2: ["0%", "0%"],
-      }
 
   useEffect(() => {
     const updatePath = () => {
@@ -155,30 +136,32 @@ export function AnimatedBeam({
         strokeLinecap="round"
       />
       <defs>
-        <motion.linearGradient
-          className="transform-gpu"
+        <linearGradient
           id={id}
-          gradientUnits={"userSpaceOnUse"}
-          initial={{
-            x1: "0%",
-            x2: "0%",
-            y1: "0%",
-            y2: "0%",
-          }}
-          animate={{
-            x1: gradientCoordinates.x1,
-            x2: gradientCoordinates.x2,
-            y1: gradientCoordinates.y1,
-            y2: gradientCoordinates.y2,
-          }}
-          transition={{
-            delay,
-            duration,
-            ease: [0.16, 1, 0.3, 1],
-            repeat,
-            repeatDelay,
-          }}
+          gradientUnits="userSpaceOnUse"
+          x1={reverse ? "90%" : "10%"}
+          x2={reverse ? "100%" : "0%"}
+          y1="0%"
+          y2="0%"
         >
+          <animate
+            attributeName="x1"
+            values={reverse ? "90%;-10%" : "10%;110%"}
+            dur={`${duration}s`}
+            begin={`${delay}s`}
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.16 1 0.3 1"
+          />
+          <animate
+            attributeName="x2"
+            values={reverse ? "100%;0%" : "0%;100%"}
+            dur={`${duration}s`}
+            begin={`${delay}s`}
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.16 1 0.3 1"
+          />
           <stop stopColor={gradientStartColor} stopOpacity="0"></stop>
           <stop stopColor={gradientStartColor}></stop>
           <stop offset="32.5%" stopColor={gradientStopColor}></stop>
@@ -187,7 +170,7 @@ export function AnimatedBeam({
             stopColor={gradientStopColor}
             stopOpacity="0"
           ></stop>
-        </motion.linearGradient>
+        </linearGradient>
       </defs>
     </svg>
   )

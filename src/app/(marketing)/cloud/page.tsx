@@ -3,7 +3,7 @@
 import { BlurFade } from "@/components/ui/blur-fade";
 import { HoverCard } from "@/components/ui/card-3d";
 import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
-import NewsletterSignup from "@/components/marketing/NewsletterSignup";
+import CloudHowItWorks from "@/components/marketing/CloudHowItWorks";
 import {
   SiNextdotjs,
   SiRemix,
@@ -36,33 +36,157 @@ export default function CloudPage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
+      {/* Hero Section - The Differentiator */}
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-12 md:mb-16">
         <BlurFade>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 bg-primary animate-pulse" />
-                <span className="font-mono text-xs tracking-widest text-primary uppercase">LASTMILE_CLOUD</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-on-surface leading-[0.9] mb-6 md:mb-8 font-headline">
-                One command to <span className="text-primary italic glow-text-primary">production</span>
-              </h1>
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <span className="w-2 h-2 bg-primary animate-pulse" />
+              <span className="font-mono text-xs tracking-widest text-primary uppercase">LASTMILE_CLOUD</span>
             </div>
-            <div className="lg:col-span-5 pb-4">
-              <p className="text-base md:text-lg text-on-surface-variant font-mono leading-relaxed opacity-80">
-                Database included. SSL automatic. CDN global. Zero DevOps required. Just <span className="text-primary">lastmile ship</span>.
-              </p>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-on-surface leading-[1] mb-6 font-headline">
+              Other platforms deploy your <span className="text-white/40 line-through">broken</span> code.
+              <br />
+              <span className="text-primary glow-text-primary">We fix it first.</span>
+            </h1>
+            <p className="text-base md:text-lg text-on-surface-variant font-mono leading-relaxed opacity-80 max-w-2xl mx-auto">
+              Analyze. Fix. Deploy. Database included. SSL automatic. Zero DevOps.
+            </p>
           </div>
         </BlurFade>
       </section>
 
-      {/* Terminal Demo */}
-      <section className="max-w-4xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
+      {/* Flow Diagram - Visual Differentiator */}
+      <section className="max-w-5xl mx-auto px-4 md:px-8 mb-8 md:mb-12">
         <BlurFade delay={0.1}>
-          <LastMileTerminalDemo variant="ship" />
+          <div className="bg-surface-container-low border border-outline-variant/20 rounded-lg">
+            <CloudHowItWorks />
+          </div>
         </BlurFade>
+      </section>
+
+      {/* Three Steps */}
+      <section className="max-w-4xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <BlurFade delay={0.15}>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 mb-3">
+                <span className="text-primary font-mono font-bold">1</span>
+              </div>
+              <h3 className="font-bold text-sm mb-2">Analyze</h3>
+              <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                Scans for 50+ production issues: missing env files, console.logs, hardcoded secrets, no error boundaries.
+              </p>
+            </div>
+          </BlurFade>
+          <BlurFade delay={0.2}>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/10 border border-secondary/20 mb-3">
+                <span className="text-secondary font-mono font-bold">2</span>
+              </div>
+              <h3 className="font-bold text-sm mb-2">Fix</h3>
+              <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                Auto-generates fixes: .env.example, health checks, structured logging. You approve, we apply.
+              </p>
+            </div>
+          </BlurFade>
+          <BlurFade delay={0.25}>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 mb-3">
+                <span className="text-primary font-mono font-bold">3</span>
+              </div>
+              <h3 className="font-bold text-sm mb-2">Deploy</h3>
+              <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                Provisions database, runs migrations, deploys to edge. Live URL in minutes.
+              </p>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      {/* Terminal Demo */}
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
+        <BlurFade delay={0.3}>
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">See It In <span className="text-primary glow-text-primary">Action</span></h2>
+            <div className="h-[1px] flex-grow bg-outline-variant/20" />
+            <span className="font-8bit-sm text-white/30">DEMO</span>
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.35}>
+          <div className="max-w-4xl mx-auto">
+            <LastMileTerminalDemo variant="ship" />
+          </div>
+        </BlurFade>
+      </section>
+
+      {/* Why Not Just Deploy Directly? */}
+      <section className="w-full bg-surface-container py-12 mb-16 md:mb-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <BlurFade delay={0.4}>
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Why <span className="text-secondary glow-text-secondary">LastMile</span>?</h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+              <span className="font-8bit-sm text-white/30">VS</span>
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.45}>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse font-mono text-sm">
+                <thead>
+                  <tr className="border-b border-outline-variant/30">
+                    <th className="text-left py-4 px-4 text-white/50 font-normal">Feature</th>
+                    <th className="text-center py-4 px-4 text-primary font-bold">LastMile Cloud</th>
+                    <th className="text-center py-4 px-4 text-white/50 font-normal">Vercel / Netlify</th>
+                    <th className="text-center py-4 px-4 text-white/50 font-normal">Lovable / Bolt</th>
+                  </tr>
+                </thead>
+                <tbody className="text-xs">
+                  <tr className="border-b border-outline-variant/20">
+                    <td className="py-3 px-4 text-white/70">Code Analysis</td>
+                    <td className="py-3 px-4 text-center text-primary">50+ checks</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                  </tr>
+                  <tr className="border-b border-outline-variant/20">
+                    <td className="py-3 px-4 text-white/70">Auto-Fix Issues</td>
+                    <td className="py-3 px-4 text-center text-primary">Yes</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                  </tr>
+                  <tr className="border-b border-outline-variant/20">
+                    <td className="py-3 px-4 text-white/70">Native Postgres</td>
+                    <td className="py-3 px-4 text-center text-primary">Included</td>
+                    <td className="py-3 px-4 text-center text-white/50">Add-on</td>
+                    <td className="py-3 px-4 text-center text-white/50">Limited</td>
+                  </tr>
+                  <tr className="border-b border-outline-variant/20">
+                    <td className="py-3 px-4 text-white/70">Domain Registration</td>
+                    <td className="py-3 px-4 text-center text-primary">Built-in</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                    <td className="py-3 px-4 text-center text-white/30">-</td>
+                  </tr>
+                  <tr className="border-b border-outline-variant/20">
+                    <td className="py-3 px-4 text-white/70">Full-Stack Support</td>
+                    <td className="py-3 px-4 text-center text-primary">Yes</td>
+                    <td className="py-3 px-4 text-center text-white/50">Frontend-focused</td>
+                    <td className="py-3 px-4 text-center text-white/50">Limited</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 text-white/70">Export / No Lock-in</td>
+                    <td className="py-3 px-4 text-center text-primary">Yes</td>
+                    <td className="py-3 px-4 text-center text-white/50">Manual</td>
+                    <td className="py-3 px-4 text-center text-white/50">Limited</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-center text-white/40 font-mono text-xs mt-6">
+              We&apos;re not just hosting. We&apos;re the <span className="text-primary">production-readiness layer</span>.
+            </p>
+          </BlurFade>
+        </div>
       </section>
 
       {/* What's Included */}
@@ -198,16 +322,142 @@ export default function CloudPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
-      <section className="max-w-sm mx-auto px-4 md:px-8 mb-16 md:mb-24">
+      {/* Domain Registration */}
+      <section className="max-w-7xl mx-auto px-4 md:px-8 mb-16 md:mb-24">
         <BlurFade delay={0.6}>
-          <NewsletterSignup />
+          <div className="flex items-center gap-4 mb-8">
+            <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Need a <span className="text-primary glow-text-primary">Domain</span>?</h2>
+            <div className="h-[1px] flex-grow bg-outline-variant/20" />
+            <span className="font-8bit-sm text-white/30">DOMAINS</span>
+          </div>
         </BlurFade>
+
+        <BlurFade delay={0.65}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="text-on-surface-variant font-mono text-sm leading-relaxed mb-6">
+                Buy domains directly from LastMile. No separate registrar needed. DNS auto-configured. SSL included. Live in minutes.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-surface-container border border-outline-variant/20 p-4">
+                  <div className="font-mono text-lg font-bold text-white">.com</div>
+                  <div className="font-mono text-xs text-primary">$15/year</div>
+                </div>
+                <div className="bg-surface-container border border-outline-variant/20 p-4">
+                  <div className="font-mono text-lg font-bold text-white">.dev</div>
+                  <div className="font-mono text-xs text-primary">$18/year</div>
+                </div>
+                <div className="bg-surface-container border border-outline-variant/20 p-4">
+                  <div className="font-mono text-lg font-bold text-white">.app</div>
+                  <div className="font-mono text-xs text-primary">$20/year</div>
+                </div>
+                <div className="bg-surface-container border border-outline-variant/20 p-4">
+                  <div className="font-mono text-lg font-bold text-white">.io</div>
+                  <div className="font-mono text-xs text-primary">$50/year</div>
+                </div>
+              </div>
+              <p className="text-white/30 font-mono text-[10px] mt-4">
+                At-cost pricing. No hidden fees. No upsells.
+              </p>
+            </div>
+
+            {/* Domain Search Mock */}
+            <div className="bg-surface-container-high border border-outline-variant/30 p-6">
+              <div className="font-mono text-[10px] text-white/30 mb-3 tracking-widest">SEARCH</div>
+              <div className="flex gap-2 mb-4">
+                <div className="flex-1 bg-surface-container-low border border-outline-variant/30 px-3 py-2 font-mono text-sm text-white/50">
+                  myawesomeapp
+                </div>
+                <div className="bg-surface-container border border-outline-variant/30 px-3 py-2 font-mono text-sm text-white/50">
+                  .com
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between bg-primary/10 border border-primary/30 px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-primary">✓</span>
+                    <span className="font-mono text-sm text-white">myawesomeapp.com</span>
+                  </div>
+                  <span className="font-mono text-xs text-primary">$15/yr</span>
+                </div>
+                <div className="flex items-center justify-between bg-surface-container px-3 py-2 opacity-50">
+                  <div className="flex items-center gap-2">
+                    <span className="text-white/30">✗</span>
+                    <span className="font-mono text-sm text-white/50">myawesomeapp.io</span>
+                  </div>
+                  <span className="font-mono text-xs text-white/30">Taken</span>
+                </div>
+                <div className="flex items-center justify-between bg-surface-container border border-outline-variant/20 px-3 py-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-primary">✓</span>
+                    <span className="font-mono text-sm text-white">myawesomeapp.dev</span>
+                  </div>
+                  <span className="font-mono text-xs text-primary">$18/yr</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </BlurFade>
+      </section>
+
+      {/* No Lock-in */}
+      <section className="w-full bg-surface-container-low py-12 mb-16 md:mb-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <BlurFade delay={0.7}>
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">No <span className="text-secondary glow-text-secondary">Lock-in</span></h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+              <span className="font-8bit-sm text-white/30">EXIT</span>
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.75}>
+            <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-2xl">
+              Your code is yours. Export anytime. Deploy anywhere. We make it easy to leave (but you won&apos;t want to).
+            </p>
+          </BlurFade>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <BlurFade delay={0.8}>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
+                  <span className="text-primary">$</span> lastmile export --to github
+                </div>
+                <h3 className="font-bold text-sm mb-2">Export to GitHub</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Full repo with all configs. GitHub Actions included. One command.
+                </p>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.85}>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
+                  <span className="text-primary">$</span> lastmile deploy --self-hosted
+                </div>
+                <h3 className="font-bold text-sm mb-2">Deploy Elsewhere</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Deploy to your own Vercel, Railway, or AWS. We generate the configs.
+                </p>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.9}>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
+                  <span className="text-primary">$</span> lastmile export --format terraform
+                </div>
+                <h3 className="font-bold text-sm mb-2">Infrastructure as Code</h3>
+                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
+                  Dockerfile, docker-compose, Terraform. Full portability.
+                </p>
+              </div>
+            </BlurFade>
+          </div>
+        </div>
       </section>
 
       {/* Final CTA */}
       <section className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-        <BlurFade delay={0.65}>
+        <BlurFade delay={0.95}>
           <div className="bg-surface-container-high p-8 md:p-12">
             <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-6 font-headline">
               Stop configuring. <span className="text-primary glow-text-primary">Start shipping.</span>
