@@ -7,6 +7,7 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
+import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 import {
   SiNextdotjs,
   SiRemix,
@@ -48,9 +49,9 @@ export default function Home() {
           />
 
           {/* Hero content */}
-          <div className="relative z-20 flex-1 flex items-center pointer-events-none">
-            <section className="relative px-4 md:px-8 lg:px-12 py-12 md:py-16 max-w-7xl mx-auto w-full pointer-events-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="relative z-20 flex-1 flex items-start pt-8 md:pt-12 pointer-events-none">
+            <section className="relative px-4 md:px-8 lg:px-12 py-8 md:py-12 max-w-7xl mx-auto w-full pointer-events-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                 {/* Left: Headline Content */}
                 <div className="lg:col-span-6 space-y-6 md:space-y-8">
                   <BlurFade delay={0}>
@@ -58,7 +59,7 @@ export default function Home() {
                       <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
                         [ STATUS: LOCALHOST ]
                       </div>
-                      {/* GitHub Stars Badge */}
+                      {/* GitHub Stars Badge - hidden until launch
                       <a
                         href="https://github.com/lastmile-ai/lastmile"
                         target="_blank"
@@ -71,16 +72,17 @@ export default function Home() {
                         <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
                         <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
                       </a>
+                      */}
                     </div>
                   </BlurFade>
 
                   <BlurFade delay={0.1}>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black font-headline tracking-tighter leading-[0.95] text-white">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black font-headline tracking-tighter leading-[0.95] text-white">
                       AI coding got you to 80%.
                       <br className="mb-2" />
                       <span className="block mt-3">
                       <AnimatedGradientText
-                        className="italic text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black"
+                        className="italic text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black"
                         colorFrom="#6bfb9a"
                         colorTo="#ffc664"
                         speed={1.5}
@@ -92,34 +94,15 @@ export default function Home() {
                   </BlurFade>
 
                   <BlurFade delay={0.2}>
-                    <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                    <p className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
                       Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
                     </p>
                   </BlurFade>
 
                   <BlurFade delay={0.3}>
-                    <div className="flex flex-col sm:flex-row gap-4 md:gap-6 pt-2">
-                      <Link
-                        href="/pricing"
-                        className="relative bg-primary text-on-primary px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 group glow-hover-primary glow-border-primary transition-all overflow-hidden"
-                      >
-                        {/* Shimmer effect */}
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-                        <span className="relative">GET_STARTED &gt;</span>
-                      </Link>
-                      <Link
-                        href="#how-it-works"
-                        className="border border-outline/20 text-white/80 px-6 md:px-8 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide flex items-center justify-center gap-2 hover:bg-surface-container hover:border-primary/30 transition-all"
-                      >
-                        <span className="text-secondary">$</span>
-                        HOW_IT_WORKS
-                      </Link>
+                    <div className="pt-2">
+                      <NewsletterSignup />
                     </div>
-                  </BlurFade>
-                  <BlurFade delay={0.4}>
-                    <p className="text-white/30 font-mono text-xs pt-4">
-                      Trusted by developers shipping AI-generated code to production
-                    </p>
                   </BlurFade>
                 </div>
 
@@ -633,25 +616,10 @@ export default function Home() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Still on <span className="font-mono text-primary glow-text-primary">localhost:3000</span>?</h2>
           <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-xl mx-auto">
-            LastMile analyzes your AI-generated code, fixes production gaps, and deploys it — database included, zero config.
+            Be the first to know when LastMile launches. Get early access and ship your AI-generated code to production.
           </p>
-          <div className="flex justify-center gap-2 font-mono text-xs text-primary bg-primary/5 py-3 md:py-4 px-4 md:px-8 inline-flex border border-primary/20 glow-border-primary mb-8">
-            <span className="text-secondary glow-text-secondary">$</span>
-            <span className="glow-text-primary">npm install -g @lastmile/cli</span>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/pricing"
-              className="bg-primary text-on-primary px-8 md:px-10 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide glow-hover-primary glow-border-primary transition-all"
-            >
-              GET_STARTED &gt;
-            </Link>
-            <Link
-              href="/docs"
-              className="border border-outline/20 text-white/80 px-8 md:px-10 py-3 md:py-4 font-mono font-bold text-sm uppercase tracking-wide hover:bg-surface-container hover:border-primary/30 transition-all"
-            >
-              READ_DOCS
-            </Link>
+          <div className="max-w-md mx-auto">
+            <NewsletterSignup />
           </div>
         </section>
     </div>

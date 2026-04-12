@@ -8,7 +8,6 @@ const navItems = [
   { href: "/", label: "HOME" },
   { href: "/cloud", label: "CLOUD" },
   { href: "/mcp", label: "MCP" },
-  { href: "/pricing", label: "PRICING" },
   { href: "/docs", label: "DOCS" },
 ];
 
@@ -44,9 +43,9 @@ export default function Header() {
 
         {/* Status Indicator */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="glow-dot" />
-          <span className="font-8bit-sm opacity-50">
-            ONLINE
+          <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+          <span className="font-8bit-sm text-secondary/70">
+            DEPLOYING...
           </span>
         </div>
 
@@ -85,9 +84,9 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-4 mt-2 border-t border-outline-variant/20">
-              <div className="glow-dot" />
-              <span className="font-8bit-sm opacity-50">
-                ONLINE
+              <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+              <span className="font-8bit-sm text-secondary/70">
+                DEPLOYING...
               </span>
             </div>
           </div>

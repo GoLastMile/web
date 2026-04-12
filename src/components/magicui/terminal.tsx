@@ -310,7 +310,7 @@ export function Terminal({
           <div className="h-2.5 w-2.5 rounded-full bg-green-500"></div>
         </div>
       </div>
-      <pre ref={scrollRef} className="p-4 max-h-[400px] overflow-y-auto">
+      <pre ref={scrollRef} className="p-4 max-h-[530px] overflow-y-auto">
         <code className="grid gap-y-1 font-mono text-sm">{wrappedChildren}</code>
       </pre>
     </div>
