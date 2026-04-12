@@ -127,7 +127,7 @@ export default function CLIReferencePage() {
         <div className="mb-8">
           <h3 className="font-mono text-lg font-bold text-primary mb-3">lastmile ship</h3>
           <p className="text-on-surface-variant font-mono text-sm mb-4">
-            Deploy your application to Railway (full-stack apps, backends) or Vercel (Next.js, frontends) with automatic environment variable injection.
+            Deploy your application to LastMile Cloud with zero configuration. Database, SSL, and CDN included automatically.
           </p>
           <div className="bg-surface-container border border-outline-variant/20 overflow-hidden mb-4">
             <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
@@ -136,16 +136,18 @@ export default function CLIReferencePage() {
             <div className="p-4 font-mono text-sm">
               <div className="flex gap-3">
                 <span className="text-primary">$</span>
-                <span className="text-on-surface">lastmile ship [target]</span>
+                <span className="text-on-surface">lastmile ship</span>
               </div>
             </div>
           </div>
           <div className="font-mono text-xs text-on-surface-variant">
             <div className="grid grid-cols-[120px_1fr] gap-2">
-              <span className="text-secondary">railway</span>
-              <span>Full-stack apps, backends, databases</span>
-              <span className="text-secondary">vercel</span>
-              <span>Next.js apps, frontends, edge functions</span>
+              <span className="text-primary">(default)</span>
+              <span>LastMile Cloud - database, edge compute, CDN</span>
+              <span className="text-secondary">--vercel</span>
+              <span>Deploy to Vercel instead</span>
+              <span className="text-secondary">--railway</span>
+              <span>Deploy to Railway instead</span>
             </div>
           </div>
         </div>

@@ -2,7 +2,101 @@
 
 import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/magicui/terminal"
 
-export default function LastMileTerminalDemo() {
+interface LastMileTerminalDemoProps {
+  variant?: "full" | "ship"
+}
+
+export default function LastMileTerminalDemo({ variant = "full" }: LastMileTerminalDemoProps) {
+  if (variant === "ship") {
+    return (
+      <Terminal className="max-w-full">
+        {/* SHIP command only */}
+        <TypingAnimation delay={0} className="text-white">
+          $ lastmile ship
+        </TypingAnimation>
+
+        <AnimatedSpan delay={400} className="text-white/50">
+          Initializing deployment...
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={800} className="text-cyan-400">
+          Detected stack: Next.js 15 + Prisma + PostgreSQL
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={1200} className="text-white/50">
+          [1/6] Building application...
+        </AnimatedSpan>
+        <AnimatedSpan delay={1600} className="text-white/40 pl-2">
+          Compiling TypeScript...
+        </AnimatedSpan>
+        <AnimatedSpan delay={1900} className="text-white/40 pl-2">
+          Bundling 847 modules...
+        </AnimatedSpan>
+        <AnimatedSpan delay={2200} className="text-primary pl-2">
+          Build complete (12.4s)
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={2600} className="text-white/50">
+          [2/6] Provisioning database...
+        </AnimatedSpan>
+        <AnimatedSpan delay={2900} className="text-white/40 pl-2">
+          Creating PostgreSQL instance (1GB)...
+        </AnimatedSpan>
+        <AnimatedSpan delay={3300} className="text-white/40 pl-2">
+          Running migrations (3 tables)...
+        </AnimatedSpan>
+        <AnimatedSpan delay={3600} className="text-primary pl-2">
+          Database ready
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={4000} className="text-white/50">
+          [3/6] Configuring environment...
+        </AnimatedSpan>
+        <AnimatedSpan delay={4300} className="text-white/40 pl-2">
+          Injecting DATABASE_URL, API_KEY...
+        </AnimatedSpan>
+        <AnimatedSpan delay={4600} className="text-primary pl-2">
+          12 secrets configured
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={5000} className="text-white/50">
+          [4/6] Generating SSL certificate...
+        </AnimatedSpan>
+        <AnimatedSpan delay={5400} className="text-primary pl-2">
+          SSL active for myapp.lastmile.run
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={5800} className="text-white/50">
+          [5/6] Deploying to edge network...
+        </AnimatedSpan>
+        <AnimatedSpan delay={6100} className="text-white/40 pl-2">
+          Distributing to 300+ locations...
+        </AnimatedSpan>
+        <AnimatedSpan delay={6500} className="text-primary pl-2">
+          Edge deployment complete
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={6900} className="text-white/50">
+          [6/6] Running health checks...
+        </AnimatedSpan>
+        <AnimatedSpan delay={7200} className="text-primary pl-2">
+          All endpoints responding (avg 23ms)
+        </AnimatedSpan>
+
+        <AnimatedSpan delay={7800} className="text-primary font-bold mt-2">
+          Deployment complete in 47s
+        </AnimatedSpan>
+        <AnimatedSpan delay={8200} className="text-secondary underline">
+          https://myapp.lastmile.run
+        </AnimatedSpan>
+        <AnimatedSpan delay={8600} className="text-white/40">
+          Database: myapp-db.lastmile.run:5432
+        </AnimatedSpan>
+      </Terminal>
+    )
+  }
+
+  // Default: full demo with analyze, fix, ship
   return (
     <Terminal className="max-w-full">
       {/* ANALYZE command */}

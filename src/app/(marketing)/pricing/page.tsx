@@ -10,7 +10,7 @@ const pricingPlans = [
       { text: "Full gap detection (18 categories)", included: true },
       { text: "Production readiness score", included: true },
       { text: "Fix suggestions (view only)", included: true },
-      { text: "Hosting & deployment", included: false },
+      { text: "LastMile Cloud hosting", included: false },
     ],
     cta: "START_ANALYZING",
     featured: false,
@@ -20,7 +20,7 @@ const pricingPlans = [
     name: "Launch",
     price: "$39",
     features: [
-      { text: "5 projects + hosting", included: true },
+      { text: "5 projects on LastMile Cloud", included: true },
       { text: "Auto-fix all issues", included: true },
       { text: "Zero-config deployment", included: true },
       { text: "Database included (1GB)", included: true },
@@ -34,7 +34,7 @@ const pricingPlans = [
     name: "Pro",
     price: "$79",
     features: [
-      { text: "15 projects + hosting", included: true },
+      { text: "15 projects on LastMile Cloud", included: true },
       { text: "5 databases (5GB each)", included: true },
       { text: "Priority builds", included: true },
       { text: "Preview deployments", included: true },
@@ -48,7 +48,7 @@ const pricingPlans = [
     name: "Team",
     price: "$149",
     features: [
-      { text: "Unlimited projects", included: true },
+      { text: "Unlimited projects on Cloud", included: true },
       { text: "5 team members included", included: true },
       { text: "Shared configs & standards", included: true },
       { text: "Unlimited databases (50GB)", included: true },
@@ -80,12 +80,12 @@ export default function PricingPage() {
                 <span className="font-mono text-xs tracking-widest text-primary uppercase">NO_HIDDEN_FEES</span>
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-on-surface leading-[0.9] mb-6 md:mb-8 font-headline">
-                Pay for what you <span className="text-primary italic glow-text-primary">actually use</span>
+                Pick your level of <span className="text-primary italic glow-text-primary">serious</span>
               </h1>
             </div>
             <div className="lg:col-span-5 pb-4">
               <p className="text-base md:text-lg text-on-surface-variant font-mono leading-relaxed opacity-80">
-                Analyze for free. Pay when you want auto-fixes and hosting. No surprise charges. No &quot;enterprise contact us&quot; nonsense.
+                Start at zero. Scale when you&apos;re ready to ship.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function PricingPage() {
               <p className="text-on-surface-variant font-mono text-sm">Templates, transformations, AI-generated patches. One click to apply all fixes. No manual work.</p>
             </div>
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-              <div className="text-primary font-mono text-xs mb-3">DEPLOY</div>
+              <div className="text-primary font-mono text-xs mb-3">LASTMILE_CLOUD</div>
               <h3 className="font-bold mb-2">Zero-Config Hosting</h3>
               <p className="text-on-surface-variant font-mono text-sm">One command to production. Database included. SSL automatic. Custom domains. No DevOps required.</p>
             </div>

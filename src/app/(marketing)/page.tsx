@@ -7,6 +7,32 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
+import {
+  SiNextdotjs,
+  SiRemix,
+  SiNuxt,
+  SiSvelte,
+  SiAstro,
+  SiReact,
+  SiVuedotjs,
+  SiNestjs,
+  SiExpress,
+  SiFastify,
+  SiHono,
+  SiFastapi,
+  SiDjango,
+  SiFlask,
+  SiGo,
+  SiPostgresql,
+  SiRedis,
+  SiPrisma,
+  SiDrizzle,
+  SiClerk,
+  SiVitest,
+  SiJest,
+  SiTypescript,
+  SiPython,
+} from "@icons-pack/react-simple-icons";
 
 export default function Home() {
   return (
@@ -90,6 +116,11 @@ export default function Home() {
                       </Link>
                     </div>
                   </BlurFade>
+                  <BlurFade delay={0.4}>
+                    <p className="text-white/30 font-mono text-xs pt-4">
+                      Trusted by developers shipping AI-generated code to production
+                    </p>
+                  </BlurFade>
                 </div>
 
                 {/* Right: Terminal Demo */}
@@ -137,8 +168,8 @@ export default function Home() {
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-primary font-mono text-[10px] mb-2">03</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Observability</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">When prod breaks at 3am, console.log won&apos;t save you.</p>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Input Validation</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">Trusting user input directly? That&apos;s how injection attacks happen.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -146,8 +177,8 @@ export default function Home() {
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-secondary font-mono text-[10px] mb-2">04</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">CI/CD</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">You&apos;re still doing git push and praying? In 2025?</p>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Rate Limiting</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">No throttling = one script kiddie away from a $10k AWS bill.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -173,8 +204,8 @@ export default function Home() {
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-secondary font-mono text-[10px] mb-2">07</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Database</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">No migrations = &quot;I&apos;ll just drop the table&quot; energy.</p>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Type Safety</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">Using &apos;any&apos; everywhere defeats the entire point of TypeScript.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -299,6 +330,31 @@ export default function Home() {
               </div>
             </div>
             </BlurFade>
+
+{/* Developer Quotes - Add real quotes here when available
+            <BlurFade delay={0.2}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                <div className="border-l-2 border-error/50 pl-4 py-2">
+                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
+                    &quot;Quote 1&quot;
+                  </p>
+                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
+                </div>
+                <div className="border-l-2 border-secondary/50 pl-4 py-2">
+                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
+                    &quot;Quote 2&quot;
+                  </p>
+                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
+                </div>
+                <div className="border-l-2 border-primary/50 pl-4 py-2">
+                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
+                    &quot;Quote 3&quot;
+                  </p>
+                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
+                </div>
+              </div>
+            </BlurFade>
+            */}
           </div>
         </section>
 
@@ -373,17 +429,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Zero DevOps Section */}
+        {/* LastMile Cloud Section */}
         <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
             <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Zero <span className="text-primary glow-text-primary">DevOps</span> Required</h2>
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">LastMile <span className="text-primary glow-text-primary">Cloud</span></h2>
               <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">HANDLED</span>
+              <span className="font-8bit-sm text-white/30">DEPLOY</span>
             </div>
 
             <p className="text-on-surface-variant font-mono text-sm md:text-base max-w-3xl">
-              AI coding tools don&apos;t set up your infrastructure. With LastMile Cloud, you don&apos;t have to either. We handle everything behind the scenes.
+              One command to production. Database included. SSL automatic. Zero DevOps required. <span className="text-primary">lastmile ship</span> and you&apos;re live.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -417,16 +473,19 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Zero Config Banner */}
-            <div className="mt-8 p-6 border border-secondary/20 bg-secondary/5">
+            {/* LastMile Cloud Banner */}
+            <div className="mt-8 p-6 border border-primary/20 bg-primary/5">
               <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-secondary rounded-full" />
-                  <span className="font-mono text-xs text-secondary uppercase tracking-widest">ZERO_CONFIG</span>
+                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                  <span className="font-mono text-xs text-primary uppercase tracking-widest">LASTMILE_CLOUD</span>
                 </div>
                 <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                  No Dockerfiles. No CI/CD pipelines. No environment variable juggling. Just ship.
+                  No Dockerfiles. No CI/CD pipelines. No environment variable juggling. Just <span className="text-primary">lastmile ship</span>.
                 </p>
+                <a href="/cloud" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
+                  LEARN_MORE &gt;
+                </a>
               </div>
             </div>
           </div>
@@ -476,108 +535,91 @@ export default function Home() {
         </section>
 
         {/* Supported Tech Stacks */}
-        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+        <section className="w-full bg-surface-container-low py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8 md:space-y-12">
             <div className="flex items-center gap-4">
               <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Works With Your <span className="text-primary glow-text-primary">Stack</span></h2>
               <div className="h-[1px] flex-grow bg-outline-variant/20" />
               <span className="font-8bit-sm text-white/30">COMPAT</span>
             </div>
 
-            {/* Stack Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Languages */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">LANGUAGES</div>
-                <div className="flex flex-wrap gap-2">
-                  {["TypeScript", "JavaScript", "Python", "Go", "Ruby", "Rust", "PHP"].map((lang) => (
-                    <span key={lang} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{lang}</span>
-                  ))}
+            {/* Main Frameworks & Databases Icon Grid */}
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-4">
+              {[
+                { name: "TypeScript", Icon: SiTypescript },
+                { name: "Python", Icon: SiPython },
+                { name: "Go", Icon: SiGo },
+                { name: "Next.js", Icon: SiNextdotjs },
+                { name: "Remix", Icon: SiRemix },
+                { name: "Nuxt", Icon: SiNuxt },
+                { name: "SvelteKit", Icon: SiSvelte },
+                { name: "Astro", Icon: SiAstro },
+                { name: "React", Icon: SiReact },
+                { name: "Vue", Icon: SiVuedotjs },
+                { name: "NestJS", Icon: SiNestjs },
+                { name: "Express", Icon: SiExpress },
+                { name: "Fastify", Icon: SiFastify },
+                { name: "Hono", Icon: SiHono },
+                { name: "FastAPI", Icon: SiFastapi },
+                { name: "Django", Icon: SiDjango },
+                { name: "Flask", Icon: SiFlask },
+                { name: "Postgres", Icon: SiPostgresql },
+              ].map((stack) => (
+                <div
+                  key={stack.name}
+                  className="group flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-surface-container transition-colors"
+                  title={stack.name}
+                >
+                  <stack.Icon
+                    size={32}
+                    className="text-on-surface-variant group-hover:text-primary transition-colors"
+                  />
+                  <span className="font-mono text-[10px] text-on-surface-variant group-hover:text-on-surface transition-colors text-center">
+                    {stack.name}
+                  </span>
                 </div>
-              </div>
-
-              {/* Frontend */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">FRONTEND</div>
-                <div className="flex flex-wrap gap-2">
-                  {["Next.js", "React", "Vue", "Nuxt", "SvelteKit", "Astro"].map((fw) => (
-                    <span key={fw} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{fw}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Backend */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">BACKEND</div>
-                <div className="flex flex-wrap gap-2">
-                  {["Express", "Fastify", "Hono", "NestJS", "FastAPI", "Django", "Flask", "Gin"].map((fw) => (
-                    <span key={fw} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{fw}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Databases */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DATABASES</div>
-                <div className="flex flex-wrap gap-2">
-                  {["PostgreSQL", "MySQL", "MongoDB", "SQLite", "Redis"].map((db) => (
-                    <span key={db} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{db}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* ORMs */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">ORMS</div>
-                <div className="flex flex-wrap gap-2">
-                  {["Prisma", "Drizzle", "TypeORM", "Sequelize", "Mongoose", "SQLAlchemy"].map((orm) => (
-                    <span key={orm} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{orm}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Auth */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">AUTH</div>
-                <div className="flex flex-wrap gap-2">
-                  {["NextAuth", "Lucia", "Clerk", "Supabase", "Auth0", "Passport"].map((auth) => (
-                    <span key={auth} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{auth}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Testing */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">TESTING</div>
-                <div className="flex flex-wrap gap-2">
-                  {["Vitest", "Jest", "Mocha", "pytest"].map((test) => (
-                    <span key={test} className="bg-surface-container px-2 py-1 text-xs font-mono text-white/70">{test}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Deploy */}
-              <div className="bg-surface border border-outline-variant/20 p-5">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DEPLOY</div>
-                <div className="flex flex-wrap gap-2">
-                  {["LastMile Cloud", "Vercel", "Railway"].map((deploy) => (
-                    <span key={deploy} className="bg-surface-container px-2 py-1 text-xs font-mono text-primary">{deploy}</span>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
 
-            {/* Coming Soon */}
-            <div className="border border-dashed border-outline-variant/30 p-6 mt-8">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-secondary font-8bit-sm">COMING_SOON</span>
-                <div className="h-[1px] flex-grow bg-outline-variant/10" />
+            {/* Plus: ORMs, Auth, Testing */}
+            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-outline-variant/20">
+              <span className="font-mono text-xs text-white/40">Plus:</span>
+              {[
+                { name: "Prisma", Icon: SiPrisma },
+                { name: "Drizzle", Icon: SiDrizzle },
+                { name: "Clerk", Icon: SiClerk },
+                { name: "Vitest", Icon: SiVitest },
+                { name: "Jest", Icon: SiJest },
+                { name: "Redis", Icon: SiRedis },
+              ].map((tool) => (
+                <div
+                  key={tool.name}
+                  className="group flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-container transition-colors"
+                  title={tool.name}
+                >
+                  <tool.Icon
+                    size={20}
+                    className="text-on-surface-variant/60 group-hover:text-primary transition-colors"
+                  />
+                  <span className="font-mono text-[10px] text-on-surface-variant/60 group-hover:text-on-surface transition-colors">
+                    {tool.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Deploy CTA */}
+            <div className="bg-surface border border-primary/20 p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+                <span className="font-mono text-xs text-primary uppercase tracking-widest">DEPLOY</span>
               </div>
-              <div className="flex flex-wrap gap-3">
-                {["AWS", "GCP", "Azure", "Render", "PlanetScale", "Neon", "Cloudflare", "Terraform", "Pulumi", "Swift", "Kotlin", "Flutter", "React Native", "Expo"].map((tech) => (
-                  <span key={tech} className="bg-surface-container-high px-3 py-1.5 text-xs font-mono text-white/40 border border-outline-variant/10">{tech}</span>
-                ))}
-              </div>
+              <p className="text-on-surface-variant font-mono text-sm flex-grow">
+                Ship to <span className="text-primary">LastMile Cloud</span> with zero config. Database included.
+              </p>
+              <a href="/cloud" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
+                LEARN_MORE &gt;
+              </a>
             </div>
           </div>
         </section>

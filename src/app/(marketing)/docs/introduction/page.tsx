@@ -43,7 +43,7 @@ export default function IntroductionPage() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-primary mt-1">&gt;</span>
-            <span><strong className="text-on-surface">One-Command Deploy</strong> - Ship to Railway or Vercel with automatic environment setup</span>
+            <span><strong className="text-on-surface">LastMile Cloud</strong> - One command to production with database, SSL, and CDN included</span>
           </li>
         </ul>
       </section>

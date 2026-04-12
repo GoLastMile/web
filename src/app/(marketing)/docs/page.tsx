@@ -133,7 +133,7 @@ export default function DocsPage() {
           <h2 className="text-xl md:text-2xl font-bold tracking-tight">Fix & Ship</h2>
         </div>
         <p className="text-on-surface-variant font-mono text-sm mb-4 ml-12">
-          Auto-generate fixes using templates, transformations, or LLM-powered generation. Then deploy to Railway or Vercel with one command.
+          Auto-generate fixes using templates, transformations, or LLM-powered generation. Then deploy to LastMile Cloud with one command.
         </p>
         <div className="ml-12 bg-surface-container border border-outline-variant/20 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
@@ -153,7 +153,7 @@ export default function DocsPage() {
             <div className="flex gap-3 mt-2">
               <span className="text-primary">$</span>
               <span className="text-on-surface">lastmile ship</span>
-              <span className="text-on-surface-variant text-xs ml-4"># Deploy to Railway/Vercel</span>
+              <span className="text-on-surface-variant text-xs ml-4"># Deploy to LastMile Cloud</span>
             </div>
           </div>
         </div>

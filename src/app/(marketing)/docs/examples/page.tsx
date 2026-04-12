@@ -26,13 +26,16 @@ export default function ExamplesPage() {
         Real-world configuration examples for popular frameworks. Set up once, run on every deploy.
       </p>
 
-      {/* Next.js with Vercel */}
+      {/* LastMile Cloud - Primary */}
       <section className="mb-12">
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Next.js + Vercel</h2>
+        <div className="flex items-center gap-3 mb-4">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight">LastMile Cloud</h2>
+          <span className="bg-primary text-on-primary font-mono text-[8px] px-2 py-0.5">RECOMMENDED</span>
+        </div>
         <p className="text-on-surface-variant font-mono text-sm mb-4">
-          Analyze and deploy a Next.js app to Vercel:
+          Deploy any app to LastMile Cloud with zero configuration. Database, SSL, and CDN included:
         </p>
-        <div className="bg-surface-container border border-outline-variant/20 overflow-hidden">
+        <div className="bg-surface-container border border-primary/30 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
             <span className="font-mono text-[10px] text-on-surface-variant">TERMINAL</span>
           </div>
@@ -50,7 +53,30 @@ $ `}<span className="text-primary">lastmile fix</span>{`
 > Generating .env.example
 > READINESS_SCORE: 88/100
 
-$ `}<span className="text-primary">lastmile ship vercel</span>{`
+$ `}<span className="text-primary">lastmile ship</span>{`
+> Deploying to LastMile Cloud...
+> Database provisioned
+> SSL certificate issued
+> CDN configured
+> https://my-app.lastmile.dev`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Next.js with Vercel - Alternative */}
+      <section className="mb-12">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Alternative: Next.js + Vercel</h2>
+        <p className="text-on-surface-variant font-mono text-sm mb-4">
+          Deploy to Vercel instead using the <span className="text-secondary">--vercel</span> flag:
+        </p>
+        <div className="bg-surface-container border border-outline-variant/20 overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
+            <span className="font-mono text-[10px] text-on-surface-variant">TERMINAL</span>
+          </div>
+          <div className="p-4 font-mono text-sm overflow-x-auto">
+            <pre className="text-on-surface-variant">
+{`$ `}<span className="text-primary">lastmile ship --vercel</span>{`
 > Deploying to Vercel...
 > Environment variables injected
 > https://my-app.vercel.app`}
@@ -59,11 +85,11 @@ $ `}<span className="text-primary">lastmile ship vercel</span>{`
         </div>
       </section>
 
-      {/* Express + Railway */}
+      {/* Express + Railway - Alternative */}
       <section className="mb-12">
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Express.js + Railway</h2>
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">Alternative: Express.js + Railway</h2>
         <p className="text-on-surface-variant font-mono text-sm mb-4">
-          Deploy a full-stack Express API with database to Railway:
+          Deploy to Railway instead using the <span className="text-secondary">--railway</span> flag:
         </p>
         <div className="bg-surface-container border border-outline-variant/20 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
@@ -71,19 +97,7 @@ $ `}<span className="text-primary">lastmile ship vercel</span>{`
           </div>
           <div className="p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-on-surface-variant">
-{`$ `}<span className="text-primary">lastmile analyze</span>{`
-> [SECURITY] Missing rate limiting
-> [ERROR_HANDLING] Unhandled promise rejections
-> [DATABASE] No connection pooling
-> READINESS_SCORE: 38/100
-
-$ `}<span className="text-primary">lastmile fix</span>{`
-> Generating Dockerfile
-> Adding error handling middleware
-> Configuring database pool
-> READINESS_SCORE: 85/100
-
-$ `}<span className="text-primary">lastmile ship railway</span>{`
+{`$ `}<span className="text-primary">lastmile ship --railway</span>{`
 > Deploying to Railway...
 > Database provisioned
 > https://api.railway.app`}
@@ -110,7 +124,7 @@ $ `}<span className="text-secondary">lastmile login</span>{`
 $ `}<span className="text-primary">lastmile analyze</span>{`      # Scan for gaps
 $ `}<span className="text-primary">lastmile fix</span>{`          # Auto-generate fixes
 $ `}<span className="text-primary">lastmile configure</span>{`    # Set up environment
-$ `}<span className="text-primary">lastmile ship</span>{`         # Deploy to Railway/Vercel`}
+$ `}<span className="text-primary">lastmile ship</span>{`         # Deploy to LastMile Cloud`}
             </pre>
           </div>
         </div>
