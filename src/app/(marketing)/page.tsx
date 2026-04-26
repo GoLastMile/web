@@ -376,9 +376,9 @@ export default function Home() {
                 <HoverCard>
                   <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
                     <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Connect</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Database provisioned. Secrets extracted and secured. Custom domain configured. All automatic.</p>
-                    <div className="font-mono text-xs text-primary">lastmile connect</div>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Zero config. Database provisioned. Custom domain configured. Your app is live.</p>
+                    <div className="font-mono text-xs text-primary">lastmile ship</div>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -386,8 +386,8 @@ export default function Home() {
                 <HoverCard>
                   <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
                     <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Zero config. Database included. Your app is live. Tell your mom you&apos;re a real developer now.</p>
+                    <h3 className="text-lg md:text-xl font-bold mb-4">Iterate</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Every deploy re-analyzes your code. Regressions caught before they go live. Production score stays high.</p>
                     <div className="font-mono text-xs text-secondary">lastmile ship</div>
                   </div>
                 </HoverCard>

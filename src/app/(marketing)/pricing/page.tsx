@@ -7,7 +7,7 @@ const pricingPlans = [
     price: "$0",
     features: [
       { text: "2 projects", included: true },
-      { text: "Full gap detection (18 categories)", included: true },
+      { text: "Full gap detection (13 categories)", included: true },
       { text: "Production readiness score", included: true },
       { text: "Fix suggestions (view only)", included: true },
       { text: "LastMile Cloud hosting", included: false },
@@ -148,8 +148,8 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
               <div className="text-primary font-mono text-xs mb-3">ANALYZE</div>
-              <h3 className="font-bold mb-2">18 Gap Categories</h3>
-              <p className="text-on-surface-variant font-mono text-sm">Security, Testing, Observability, CI/CD, Dependencies, Git, Database, Error Handling, and more. Full production audit.</p>
+              <h3 className="font-bold mb-2">13 Gap Categories</h3>
+              <p className="text-on-surface-variant font-mono text-sm">Security, Testing, Logging, CI/CD, Dependencies, Git, Database, Error Handling, Auth, API, and more. Full production audit.</p>
             </div>
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
               <div className="text-secondary font-mono text-xs mb-3">FIX</div>

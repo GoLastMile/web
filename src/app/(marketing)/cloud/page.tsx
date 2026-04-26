@@ -75,7 +75,7 @@ export default function CloudPage() {
               </div>
               <h3 className="font-bold text-sm mb-2">Analyze</h3>
               <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                Scans for 50+ production issues: missing env files, console.logs, hardcoded secrets, no error boundaries.
+                Scans for production issues: missing env files, console.logs, hardcoded secrets, no error boundaries.
               </p>
             </div>
           </BlurFade>
@@ -145,7 +145,7 @@ export default function CloudPage() {
                 <tbody className="text-xs">
                   <tr className="border-b border-outline-variant/20">
                     <td className="py-3 px-4 text-white/70">Code Analysis</td>
-                    <td className="py-3 px-4 text-center text-primary">50+ checks</td>
+                    <td className="py-3 px-4 text-center text-primary">13 categories</td>
                     <td className="py-3 px-4 text-center text-white/30">-</td>
                     <td className="py-3 px-4 text-center text-white/30">-</td>
                   </tr>
@@ -215,10 +215,10 @@ export default function CloudPage() {
           <BlurFade delay={0.3}>
             <HoverCard className="h-full">
               <div className="p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors h-full">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">COMPUTE</div>
-                <h3 className="font-bold text-lg mb-2">Edge Runtime</h3>
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">BUILDS</div>
+                <h3 className="font-bold text-lg mb-2">Auto-Detected</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Your backend runs at the edge. Sub-50ms cold starts. 300+ locations worldwide.
+                  We detect your stack and build automatically. Next.js, Vite, Express, FastAPI - no config files needed.
                 </p>
               </div>
             </HoverCard>
@@ -227,40 +227,16 @@ export default function CloudPage() {
           <BlurFade delay={0.35}>
             <HoverCard className="h-full">
               <div className="p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors h-full">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">STORAGE</div>
-                <h3 className="font-bold text-lg mb-2">Object Storage</h3>
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">SSL_CDN</div>
+                <h3 className="font-bold text-lg mb-2">Automatic HTTPS</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Zero egress fees. S3-compatible API. Perfect for images, files, and static assets.
+                  SSL certificates provisioned instantly. Global CDN delivers your app fast.
                 </p>
               </div>
             </HoverCard>
           </BlurFade>
 
           <BlurFade delay={0.4}>
-            <HoverCard className="h-full">
-              <div className="p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors h-full">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">SSL_CDN</div>
-                <h3 className="font-bold text-lg mb-2">Automatic HTTPS</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  SSL certificates provisioned instantly. Global CDN delivers your app from edge locations worldwide.
-                </p>
-              </div>
-            </HoverCard>
-          </BlurFade>
-
-          <BlurFade delay={0.45}>
-            <HoverCard className="h-full">
-              <div className="p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors h-full">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">OBSERVABILITY</div>
-                <h3 className="font-bold text-lg mb-2">Built-In Monitoring</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Sentry error tracking, structured logging, OpenTelemetry tracing, and health checks - all auto-configured.
-                </p>
-              </div>
-            </HoverCard>
-          </BlurFade>
-
-          <BlurFade delay={0.5}>
             <HoverCard className="h-full">
               <div className="p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors h-full">
                 <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DOMAINS</div>
@@ -413,41 +389,35 @@ export default function CloudPage() {
 
           <BlurFade delay={0.75}>
             <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-2xl">
-              Your code is yours. Export anytime. Deploy anywhere. We make it easy to leave (but you won&apos;t want to).
+              Your code is yours. No proprietary formats. No vendor lock-in. Standard Git repos you can take anywhere.
             </p>
           </BlurFade>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <BlurFade delay={0.8}>
               <div className="bg-surface-container border border-outline-variant/20 p-6">
-                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
-                  <span className="text-primary">$</span> lastmile export --to github
-                </div>
-                <h3 className="font-bold text-sm mb-2">Export to GitHub</h3>
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">GIT</div>
+                <h3 className="font-bold text-sm mb-2">Standard Repos</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Full repo with all configs. GitHub Actions included. One command.
+                  Your code lives in your GitHub repo. Clone it, fork it, move it anytime.
                 </p>
               </div>
             </BlurFade>
             <BlurFade delay={0.85}>
               <div className="bg-surface-container border border-outline-variant/20 p-6">
-                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
-                  <span className="text-primary">$</span> lastmile deploy --self-hosted
-                </div>
-                <h3 className="font-bold text-sm mb-2">Deploy Elsewhere</h3>
+                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">CONFIG</div>
+                <h3 className="font-bold text-sm mb-2">No Proprietary Files</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Deploy to your own Vercel, Railway, or AWS. We generate the configs.
+                  Standard package.json, Dockerfile, .env files. Nothing LastMile-specific required.
                 </p>
               </div>
             </BlurFade>
             <BlurFade delay={0.9}>
               <div className="bg-surface-container border border-outline-variant/20 p-6">
-                <div className="bg-surface-container-low border border-outline-variant/20 p-3 font-mono text-xs mb-4">
-                  <span className="text-primary">$</span> lastmile export --format terraform
-                </div>
-                <h3 className="font-bold text-sm mb-2">Infrastructure as Code</h3>
+                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">DATABASE</div>
+                <h3 className="font-bold text-sm mb-2">Standard Postgres</h3>
                 <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Dockerfile, docker-compose, Terraform. Full portability.
+                  Regular PostgreSQL. Export your data with pg_dump. Connect from anywhere.
                 </p>
               </div>
             </BlurFade>
