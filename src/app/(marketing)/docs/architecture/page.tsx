@@ -84,22 +84,30 @@ export default function ArchitecturePage() {
           </div>
 
           <div className="bg-surface-container border border-outline-variant/20 p-6">
-            <h3 className="font-bold text-secondary mb-3">Analyzer Module</h3>
+            <h3 className="font-bold text-secondary mb-3">5 LLM Deep Analyzers</h3>
             <p className="text-on-surface-variant font-mono text-sm mb-4">
-              Takes scanner output and applies heuristics to prioritize and categorize issues:
+              Full-repo analysis using specialized LLM analyzers for context-aware detection:
             </p>
             <ul className="space-y-2 font-mono text-xs text-on-surface-variant">
               <li className="flex items-start gap-2">
                 <span className="text-secondary">&gt;</span>
-                <span>Severity scoring (Critical, Warning, Info)</span>
+                <span>Security: secrets, injection, XSS, auth issues</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-secondary">&gt;</span>
-                <span>Category classification (8 gap types)</span>
+                <span>Testing: coverage gaps, missing test files</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-secondary">&gt;</span>
-                <span>Readiness Score calculation (0-100)</span>
+                <span>Error Handling: silent failures, unhandled promises</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-secondary">&gt;</span>
+                <span>Database: N+1 queries, migrations, pooling</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-secondary">&gt;</span>
+                <span>Boilerplate: missing configs, Dockerfiles, CI/CD</span>
               </li>
             </ul>
           </div>

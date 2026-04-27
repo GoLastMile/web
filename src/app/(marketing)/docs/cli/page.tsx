@@ -34,7 +34,7 @@ export default function CLIReferencePage() {
         <div className="mb-8">
           <h3 className="font-mono text-lg font-bold text-primary mb-3">lastmile analyze</h3>
           <p className="text-on-surface-variant font-mono text-sm mb-4">
-            Scan your codebase for production-readiness gaps across 8 categories. Generates a Readiness Score (0-100).
+            Run 5 LLM-powered deep analyzers against your full codebase. Generates a Readiness Score (0-100).
           </p>
           <div className="bg-surface-container border border-outline-variant/20 overflow-hidden mb-4">
             <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">
@@ -54,16 +54,13 @@ export default function CLIReferencePage() {
             </div>
           </div>
           <div className="font-mono text-xs text-on-surface-variant bg-surface-container p-4 border border-outline-variant/20">
-            <div className="font-bold text-on-surface mb-2">Gap Categories:</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div className="font-bold text-on-surface mb-2">5 LLM Deep Analyzers:</div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
               <span className="text-primary">Security</span>
               <span className="text-primary">Testing</span>
-              <span className="text-primary">Observability</span>
-              <span className="text-primary">CI/CD</span>
-              <span className="text-secondary">Dependencies</span>
-              <span className="text-secondary">Git</span>
-              <span className="text-secondary">Database</span>
               <span className="text-secondary">Error Handling</span>
+              <span className="text-secondary">Database</span>
+              <span className="text-primary">Boilerplate</span>
             </div>
           </div>
         </div>

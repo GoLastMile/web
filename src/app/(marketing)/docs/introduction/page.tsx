@@ -30,7 +30,7 @@ export default function IntroductionPage() {
       <section className="mb-12">
         <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">What is LastMile?</h2>
         <p className="text-on-surface-variant font-mono text-sm leading-relaxed mb-6">
-          LastMile is a CLI-first tool that scans your AI-generated codebase, identifies production gaps across 8 categories, and auto-generates fixes. It integrates with your existing workflow through:
+          LastMile is a CLI-first tool that scans your AI-generated codebase using 5 LLM-powered deep analyzers, identifies production gaps, and auto-generates fixes. It integrates with your existing workflow through:
         </p>
         <ul className="space-y-3 font-mono text-sm text-on-surface-variant ml-4">
           <li className="flex items-start gap-3">
@@ -54,9 +54,9 @@ export default function IntroductionPage() {
 
         <div className="space-y-6">
           <div className="bg-surface-container border border-outline-variant/20 p-6">
-            <h3 className="font-bold text-primary mb-2">8 Gap Categories</h3>
+            <h3 className="font-bold text-primary mb-2">5 LLM Deep Analyzers</h3>
             <p className="text-on-surface-variant font-mono text-sm leading-relaxed">
-              LastMile analyzes: Security, Testing, Observability, CI/CD, Dependencies, Git, Database, and Error Handling. Each gap is categorized by severity: Critical, Warning, or Info.
+              LastMile runs full-repo analysis with 5 specialized LLM analyzers: Security, Testing, Error Handling, Database, and Boilerplate. Each gap is categorized by severity: Critical, Warning, or Info.
             </p>
           </div>
 
@@ -110,8 +110,8 @@ export default function IntroductionPage() {
         <h2 className="text-xl md:text-2xl font-bold tracking-tight mb-4">By the Numbers</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="text-center p-6 bg-surface-container border border-outline-variant/20">
-            <div className="text-3xl font-black text-primary mb-2">8</div>
-            <div className="font-mono text-xs text-on-surface-variant">Gap Categories Detected</div>
+            <div className="text-3xl font-black text-primary mb-2">5</div>
+            <div className="font-mono text-xs text-on-surface-variant">LLM Deep Analyzers</div>
           </div>
           <div className="text-center p-6 bg-surface-container border border-outline-variant/20">
             <div className="text-3xl font-black text-secondary mb-2">0-100</div>

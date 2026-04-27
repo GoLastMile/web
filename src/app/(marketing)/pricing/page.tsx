@@ -6,56 +6,43 @@ const pricingPlans = [
     name: "Free",
     price: "$0",
     features: [
-      { text: "2 projects", included: true },
-      { text: "Full gap detection (13 categories)", included: true },
+      { text: "1 project", included: true },
+      { text: "3 analyses per month", included: true },
+      { text: "5 LLM deep analyzers", included: true },
       { text: "Production readiness score", included: true },
-      { text: "Fix suggestions (view only)", included: true },
-      { text: "LastMile Cloud hosting", included: false },
+      { text: "Auto-fix", included: false },
+      { text: "LastMile Cloud deploy", included: false },
     ],
     cta: "START_ANALYZING",
     featured: false,
   },
   {
     tier: "02",
-    name: "Launch",
+    name: "Starter",
+    price: "$19",
+    features: [
+      { text: "2 projects", included: true },
+      { text: "Unlimited analysis", included: true },
+      { text: "Auto-fix all issues", included: true },
+      { text: "5 LLM deep analyzers", included: true },
+      { text: "LastMile Cloud deploy", included: false },
+    ],
+    cta: "START_FIXING",
+    featured: false,
+  },
+  {
+    tier: "03",
+    name: "Pro",
     price: "$39",
     features: [
-      { text: "5 projects on LastMile Cloud", included: true },
-      { text: "Auto-fix all issues", included: true },
-      { text: "Zero-config deployment", included: true },
+      { text: "5 projects", included: true },
+      { text: "Everything in Starter", included: true },
+      { text: "LastMile Cloud deploy", included: true },
       { text: "Database included (1GB)", included: true },
       { text: "Custom domains + SSL", included: true },
     ],
     cta: "START_SHIPPING",
     featured: true,
-  },
-  {
-    tier: "03",
-    name: "Pro",
-    price: "$79",
-    features: [
-      { text: "15 projects on LastMile Cloud", included: true },
-      { text: "5 databases (5GB each)", included: true },
-      { text: "Priority builds", included: true },
-      { text: "Preview deployments", included: true },
-      { text: "Priority support", included: true },
-    ],
-    cta: "GO_PRO",
-    featured: false,
-  },
-  {
-    tier: "04",
-    name: "Team",
-    price: "$149",
-    features: [
-      { text: "Unlimited projects on Cloud", included: true },
-      { text: "5 team members included", included: true },
-      { text: "Shared configs & standards", included: true },
-      { text: "Unlimited databases (50GB)", included: true },
-      { text: "Slack support", included: true },
-    ],
-    cta: "TEAM_UP",
-    featured: false,
   },
 ];
 
@@ -92,7 +79,7 @@ export default function PricingPage() {
         </section>
 
         {/* Pricing Cards */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-0">
+        <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
           {pricingPlans.map((plan) => (
             <div
               key={plan.tier}
@@ -148,8 +135,8 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
               <div className="text-primary font-mono text-xs mb-3">ANALYZE</div>
-              <h3 className="font-bold mb-2">13 Gap Categories</h3>
-              <p className="text-on-surface-variant font-mono text-sm">Security, Testing, Logging, CI/CD, Dependencies, Git, Database, Error Handling, Auth, API, and more. Full production audit.</p>
+              <h3 className="font-bold mb-2">5 LLM Deep Analyzers</h3>
+              <p className="text-on-surface-variant font-mono text-sm">Testing, Security, Error Handling, Database, and Boilerplate. Full-repo analysis powered by LLM for context-aware detection.</p>
             </div>
             <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
               <div className="text-secondary font-mono text-xs mb-3">FIX</div>

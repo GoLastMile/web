@@ -145,7 +145,7 @@ export default function CloudPage() {
                 <tbody className="text-xs">
                   <tr className="border-b border-outline-variant/20">
                     <td className="py-3 px-4 text-white/70">Code Analysis</td>
-                    <td className="py-3 px-4 text-center text-primary">13 categories</td>
+                    <td className="py-3 px-4 text-center text-primary">5 LLM analyzers</td>
                     <td className="py-3 px-4 text-center text-white/30">-</td>
                     <td className="py-3 px-4 text-center text-white/30">-</td>
                   </tr>

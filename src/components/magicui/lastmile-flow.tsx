@@ -30,16 +30,13 @@ const DeployIcon = () => (
   </svg>
 )
 
-// The 8 gap categories - text only
+// The 5 LLM deep analyzers
 const GAP_CATEGORIES = [
   "SEC",
   "TEST",
-  "OBS",
-  "CI/CD",
-  "DOC",
   "ERR",
-  "CFG",
-  "PERF",
+  "DB",
+  "BOIL",
 ]
 
 // Flow Node that properly forwards ref to the visible element
@@ -125,33 +122,16 @@ export function LastMileFlowHero({ className }: { className?: string }) {
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="relative w-32 h-32 md:w-40 md:h-40">
               <OrbitingCircles
-                radius={55}
-                duration={30}
+                radius={60}
+                duration={25}
                 speed={0.5}
                 path={false}
                 iconSize={24}
               >
-                {GAP_CATEGORIES.slice(0, 4).map((gap) => (
+                {GAP_CATEGORIES.map((gap) => (
                   <div
                     key={gap}
                     className="flex h-6 w-6 items-center justify-center bg-surface-container-high border border-primary/40 text-[6px] font-mono font-bold text-primary/80"
-                  >
-                    {gap}
-                  </div>
-                ))}
-              </OrbitingCircles>
-              <OrbitingCircles
-                radius={75}
-                duration={40}
-                speed={0.4}
-                reverse
-                path={false}
-                iconSize={24}
-              >
-                {GAP_CATEGORIES.slice(4, 8).map((gap) => (
-                  <div
-                    key={gap}
-                    className="flex h-6 w-6 items-center justify-center bg-surface-container-high border border-secondary/40 text-[6px] font-mono font-bold text-secondary/80"
                   >
                     {gap}
                   </div>

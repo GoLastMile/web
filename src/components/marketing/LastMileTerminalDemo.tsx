@@ -105,19 +105,22 @@ export default function LastMileTerminalDemo({ variant = "full" }: LastMileTermi
       </TypingAnimation>
 
       <AnimatedSpan delay={800} className="text-white/50">
-        [1/5] Scanning project structure
+        Running 5 LLM deep analyzers...
       </AnimatedSpan>
       <AnimatedSpan delay={1000} className="text-white/50">
-        [2/5] Analyzing security &amp; auth
+        [1/5] Security analyzer (full repo)
       </AnimatedSpan>
       <AnimatedSpan delay={1200} className="text-white/50">
-        [3/5] Checking code quality
+        [2/5] Testing analyzer (full repo)
       </AnimatedSpan>
       <AnimatedSpan delay={1400} className="text-white/50">
-        [4/5] Reviewing infrastructure
+        [3/5] Error handling analyzer
       </AnimatedSpan>
       <AnimatedSpan delay={1600} className="text-white/50">
-        [5/5] Evaluating production readiness
+        [4/5] Database analyzer
+      </AnimatedSpan>
+      <AnimatedSpan delay={1800} className="text-white/50">
+        [5/5] Boilerplate analyzer
       </AnimatedSpan>
 
       <AnimatedSpan delay={2000} className="text-white/40">
@@ -137,7 +140,7 @@ export default function LastMileTerminalDemo({ variant = "full" }: LastMileTermi
         ✗ .env committed to git history
       </AnimatedSpan>
       <AnimatedSpan delay={3000} className="text-white/30 pl-2">
-        .env [git] [fixable]
+        .env [boilerplate] [fixable]
       </AnimatedSpan>
 
       <AnimatedSpan delay={3200} className="text-secondary font-bold">
@@ -147,7 +150,7 @@ export default function LastMileTerminalDemo({ variant = "full" }: LastMileTermi
         ⚠ No error boundaries
       </AnimatedSpan>
       <AnimatedSpan delay={3500} className="text-white/30 pl-2">
-        src/components/* [errors] [fixable]
+        src/components/* [error-handling] [fixable]
       </AnimatedSpan>
 
       <AnimatedSpan delay={3800} className="text-error font-bold">

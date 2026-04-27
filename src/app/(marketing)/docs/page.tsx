@@ -93,7 +93,7 @@ export default function DocsPage() {
           <h2 className="text-xl md:text-2xl font-bold tracking-tight">Analyze Your Codebase</h2>
         </div>
         <p className="text-on-surface-variant font-mono text-sm mb-4 ml-12">
-          Scan your project for production-readiness gaps across 8 categories: Security, Testing, Observability, CI/CD, Dependencies, Git, Database, and Error Handling.
+          Scan your project with 5 LLM-powered deep analyzers: Security, Testing, Error Handling, Database, and Boilerplate. Full-repo analysis for context-aware detection.
         </p>
         <div className="ml-12 bg-surface-container border border-outline-variant/20 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 bg-surface-container-low border-b border-outline-variant/20">

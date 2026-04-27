@@ -123,18 +123,18 @@ export default function Home() {
           <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
             <BlurFade>
               <div className="flex items-center gap-4">
-                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">8 Ways AI-Generated Code Is Cooked</h2>
+                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">5 Things AI Always Skips</h2>
                 <div className="h-[1px] flex-grow bg-outline-variant/20" />
                 <span className="font-8bit-sm text-white/30">AI_GAPS</span>
               </div>
             </BlurFade>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
               <BlurFade delay={0.05}>
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group bg-error/5 border-l-2 border-l-error h-full">
                     <div className="text-error font-mono text-[10px] mb-2">01 &bull; CRITICAL</div>
                     <h3 className="text-sm md:text-base font-bold mb-2">Security</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">Your API keys are literally in the code. <NumberTicker value={73} suffix="%" className="text-error font-bold" /> of AI-generated apps ship with vulnerabilities.</p>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">Hardcoded secrets, SQL injection, XSS vulnerabilities. <NumberTicker value={73} suffix="%" className="text-error font-bold" /> of AI apps ship broken.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -143,7 +143,7 @@ export default function Home() {
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-secondary font-mono text-[10px] mb-2">02</div>
                     <h3 className="text-sm md:text-base font-bold mb-2">Testing</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">&quot;It works on my machine&quot; is not a test suite, sorry.</p>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">&quot;It works on my machine&quot; is not a test suite. No tests = no confidence.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -151,8 +151,8 @@ export default function Home() {
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-primary font-mono text-[10px] mb-2">03</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Input Validation</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">Trusting user input directly? That&apos;s how injection attacks happen.</p>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Error Handling</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">catch(e) {`{}`} is not error handling. Silent failures crash at 3am.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
@@ -160,44 +160,17 @@ export default function Home() {
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
                     <div className="text-secondary font-mono text-[10px] mb-2">04</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Rate Limiting</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">No throttling = one script kiddie away from a $10k AWS bill.</p>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Database</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">No migrations, N+1 queries, missing indexes. Data layer is an afterthought.</p>
                   </div>
                 </HoverCard>
               </BlurFade>
               <BlurFade delay={0.25}>
                 <HoverCard className="h-full">
                   <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-secondary font-mono text-[10px] mb-2">05</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Dependencies</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">847 packages. 12 critical vulnerabilities. No lock file. Classic.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.3}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-primary font-mono text-[10px] mb-2">06</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Git</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">That .env file with your passwords? Yeah, it&apos;s in git history forever.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.35}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-secondary font-mono text-[10px] mb-2">07</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Type Safety</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">Using &apos;any&apos; everywhere defeats the entire point of TypeScript.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.4}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-primary font-mono text-[10px] mb-2">08</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Errors</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">catch(e) {`{}`} is not error handling, it&apos;s denial.</p>
+                    <div className="text-primary font-mono text-[10px] mb-2">05</div>
+                    <h3 className="text-sm md:text-base font-bold mb-2">Boilerplate</h3>
+                    <p className="text-on-surface-variant text-xs leading-relaxed">No .gitignore, no Dockerfile, no CI/CD. The setup AI never generates.</p>
                   </div>
                 </HoverCard>
               </BlurFade>

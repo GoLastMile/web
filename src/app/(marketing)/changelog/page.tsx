@@ -1,8 +1,18 @@
 const releases = [
   {
+    version: "0.4.0",
+    date: "2026-04-26",
+    tag: "LATEST",
+    changes: [
+      { type: "feature", text: "5 LLM deep analyzers replace pattern detectors for context-aware detection" },
+      { type: "feature", text: "Full-repo analysis - every file analyzed, not sampled" },
+      { type: "improvement", text: "Database analyzer detects N+1 queries, missing indexes, transaction issues" },
+      { type: "improvement", text: "Significantly reduced false positives through LLM understanding" },
+    ],
+  },
+  {
     version: "0.3.0",
     date: "2025-04-05",
-    tag: "LATEST",
     changes: [
       { type: "feature", text: "Added Supabase deep integration with RLS policy detection" },
       { type: "feature", text: "New `lastmile configure` command for env management" },
@@ -25,7 +35,7 @@ const releases = [
     date: "2025-03-01",
     changes: [
       { type: "feature", text: "Initial release" },
-      { type: "feature", text: "`lastmile analyze` command with 8 gap categories" },
+      { type: "feature", text: "`lastmile analyze` command with pattern-based gap detection" },
       { type: "feature", text: "Production readiness scoring (0-100)" },
       { type: "feature", text: "Vercel deployment support" },
     ],
