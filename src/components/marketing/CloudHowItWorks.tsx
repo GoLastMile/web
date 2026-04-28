@@ -6,17 +6,25 @@ import { cn } from "@/lib/utils";
 
 const Circle = forwardRef<
   HTMLDivElement,
-  { className?: string; children?: React.ReactNode }
->(({ className, children }, ref) => {
+  { className?: string; children?: React.ReactNode; label?: string; sublabel?: string }
+>(({ className, children, label, sublabel }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "z-20 flex size-12 items-center justify-center rounded-full border-2 border-outline-variant/30 bg-[#0d0d0d] p-3 shadow-lg shadow-black/30",
-        className
+    <div className="flex flex-col items-center gap-2">
+      <div
+        ref={ref}
+        className={cn(
+          "z-20 flex size-14 items-center justify-center rounded-full border-2 border-outline-variant/30 bg-[#0d0d0d] p-3 shadow-lg shadow-black/30",
+          className
+        )}
+      >
+        {children}
+      </div>
+      {label && (
+        <span className="font-mono text-[10px] font-bold text-primary tracking-wider">{label}</span>
       )}
-    >
-      {children}
+      {sublabel && (
+        <span className="font-mono text-[8px] text-white/40">{sublabel}</span>
+      )}
     </div>
   );
 });
@@ -25,142 +33,235 @@ Circle.displayName = "Circle";
 
 export default function CloudHowItWorks({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null); // Next.js
-  const div2Ref = useRef<HTMLDivElement>(null); // React
-  const div3Ref = useRef<HTMLDivElement>(null); // Code
-  const div4Ref = useRef<HTMLDivElement>(null); // Python
-  const div5Ref = useRef<HTMLDivElement>(null); // Express
-  const div6Ref = useRef<HTMLDivElement>(null); // Center - LastMile
-  const div7Ref = useRef<HTMLDivElement>(null); // Output - Live URL
+
+  // Row 1: Code -> Analyze -> 5 Analyzers
+  const codeRef = useRef<HTMLDivElement>(null);
+  const analyzeRef = useRef<HTMLDivElement>(null);
+  const analyzer1Ref = useRef<HTMLDivElement>(null);
+  const analyzer2Ref = useRef<HTMLDivElement>(null);
+  const analyzer3Ref = useRef<HTMLDivElement>(null);
+  const analyzer4Ref = useRef<HTMLDivElement>(null);
+  const analyzer5Ref = useRef<HTMLDivElement>(null);
+
+  // Row 2: Gaps -> Fix -> Build -> Deploy -> Live
+  const gapsRef = useRef<HTMLDivElement>(null);
+  const fixRef = useRef<HTMLDivElement>(null);
+  const buildRef = useRef<HTMLDivElement>(null);
+  const deployRef = useRef<HTMLDivElement>(null);
+  const liveRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
       className={cn(
-        "relative flex h-[400px] w-full items-center justify-center overflow-hidden p-10",
+        "relative flex w-full items-center justify-center overflow-hidden p-6 md:p-10",
         className
       )}
       ref={containerRef}
     >
-      <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
-        {/* Left side - Multiple inputs (frameworks/code) */}
-        <div className="flex flex-col justify-center gap-4">
-          <Circle ref={div1Ref}>
-            <Icons.nextjs className="size-6" />
-          </Circle>
-          <Circle ref={div2Ref}>
-            <Icons.react className="size-6" />
-          </Circle>
-          <Circle ref={div3Ref}>
-            <Icons.code className="size-5 text-white/70" />
-          </Circle>
-          <Circle ref={div4Ref}>
-            <Icons.python className="size-6" />
-          </Circle>
-          <Circle ref={div5Ref}>
-            <Icons.typescript className="size-6" />
-          </Circle>
-        </div>
+      <div className="flex items-center justify-between w-full max-w-6xl gap-2">
+        {/* Your Code */}
+        <Circle ref={codeRef} className="border-white/40" label="YOUR CODE">
+          <Icons.code className="size-6 text-white/70" />
+        </Circle>
 
-        {/* Center - LastMile */}
-        <div className="flex flex-col justify-center">
-          <div
-            ref={div6Ref}
-            className="z-20 flex size-20 flex-col items-center justify-center rounded-full border-2 border-primary bg-[#0d0d0d] p-2 shadow-xl shadow-primary/20"
-          >
-            <Icons.lastmile className="size-8 text-primary" />
-            <span className="font-mono text-[8px] text-primary mt-1">LASTMILE</span>
+        {/* Analyze */}
+        <Circle ref={analyzeRef} className="border-primary" label="ANALYZE">
+          <Icons.scan className="size-6 text-primary" />
+        </Circle>
+
+        {/* 5 LLM Analyzers stacked vertically */}
+        <div className="flex flex-col items-center gap-1">
+          <div ref={analyzer1Ref} className="z-20 flex h-6 w-12 items-center justify-center border border-secondary/50 bg-[#0d0d0d]">
+            <span className="font-mono text-[7px] font-bold text-secondary">SEC</span>
+          </div>
+          <div ref={analyzer2Ref} className="z-20 flex h-6 w-12 items-center justify-center border border-secondary/50 bg-[#0d0d0d]">
+            <span className="font-mono text-[7px] font-bold text-secondary">TEST</span>
+          </div>
+          <div ref={analyzer3Ref} className="z-20 flex h-6 w-12 items-center justify-center border border-secondary/50 bg-[#0d0d0d]">
+            <span className="font-mono text-[7px] font-bold text-secondary">ERR</span>
+          </div>
+          <div ref={analyzer4Ref} className="z-20 flex h-6 w-12 items-center justify-center border border-secondary/50 bg-[#0d0d0d]">
+            <span className="font-mono text-[7px] font-bold text-secondary">DB</span>
+          </div>
+          <div ref={analyzer5Ref} className="z-20 flex h-6 w-12 items-center justify-center border border-secondary/50 bg-[#0d0d0d]">
+            <span className="font-mono text-[7px] font-bold text-secondary">BOIL</span>
           </div>
         </div>
 
-        {/* Right side - Output */}
-        <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref} className="border-primary">
-            <Icons.globe className="size-6 text-primary" />
-          </Circle>
-        </div>
+        {/* Gaps Found */}
+        <Circle ref={gapsRef} className="border-error/50" label="GAPS" sublabel="42/100">
+          <Icons.alert className="size-6 text-error" />
+        </Circle>
+
+        {/* Auto-Fix */}
+        <Circle ref={fixRef} className="border-primary" label="FIX">
+          <Icons.wrench className="size-6 text-primary" />
+        </Circle>
+
+        {/* Build */}
+        <Circle ref={buildRef} className="border-primary" label="BUILD">
+          <Icons.build className="size-6 text-primary" />
+        </Circle>
+
+        {/* Deploy */}
+        <Circle ref={deployRef} className="border-primary" label="DEPLOY">
+          <Icons.deploy className="size-6 text-primary" />
+        </Circle>
+
+        {/* Live */}
+        <Circle ref={liveRef} className="border-primary shadow-lg shadow-primary/30" label="LIVE" sublabel="94/100">
+          <Icons.globe className="size-6 text-primary" />
+        </Circle>
       </div>
 
-      {/* Beams from inputs to center - all animate at once */}
+      {/* Animated Beams */}
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div6Ref}
-        curvature={-75}
-        duration={4}
+        fromRef={codeRef}
+        toRef={analyzeRef}
+        duration={5}
+        curvature={0}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div6Ref}
-        curvature={-50}
-        duration={4}
+        fromRef={analyzeRef}
+        toRef={analyzer1Ref}
+        duration={5}
+        delay={1}
+        curvature={-40}
+        pathColor="rgba(255, 198, 100, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#e6a83a"
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div6Ref}
-        duration={4}
+        fromRef={analyzeRef}
+        toRef={analyzer2Ref}
+        duration={5}
+        delay={1}
+        curvature={-20}
+        pathColor="rgba(255, 198, 100, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#e6a83a"
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div6Ref}
-        curvature={50}
-        duration={4}
+        fromRef={analyzeRef}
+        toRef={analyzer3Ref}
+        duration={5}
+        delay={1}
+        curvature={0}
+        pathColor="rgba(255, 198, 100, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#e6a83a"
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div6Ref}
-        curvature={75}
-        duration={4}
+        fromRef={analyzeRef}
+        toRef={analyzer4Ref}
+        duration={5}
+        delay={1}
+        curvature={20}
+        pathColor="rgba(255, 198, 100, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#e6a83a"
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={analyzeRef}
+        toRef={analyzer5Ref}
+        duration={5}
+        delay={1}
+        curvature={40}
+        pathColor="rgba(255, 198, 100, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#e6a83a"
       />
 
-      {/* Beam from center to output */}
+      {/* Beam from analyzers to gaps (using middle analyzer) */}
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div6Ref}
-        toRef={div7Ref}
-        duration={4}
+        fromRef={analyzer3Ref}
+        toRef={gapsRef}
+        duration={5}
+        delay={3}
+        curvature={0}
+        pathColor="rgba(239, 68, 68, 0.15)"
+        gradientStartColor="#ffc664"
+        gradientStopColor="#ef4444"
+      />
+
+      {/* Continue the flow */}
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={gapsRef}
+        toRef={fixRef}
+        duration={5}
+        delay={4}
+        curvature={0}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={fixRef}
+        toRef={buildRef}
+        duration={5}
+        delay={5}
+        curvature={0}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={buildRef}
+        toRef={deployRef}
+        duration={5}
+        delay={6}
+        curvature={0}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={deployRef}
+        toRef={liveRef}
+        duration={5}
+        delay={7}
+        curvature={0}
       />
     </div>
   );
 }
 
 const Icons = {
-  lastmile: ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-    </svg>
-  ),
   code: ({ className }: { className?: string }) => (
     <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
     </svg>
   ),
+  scan: ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+    </svg>
+  ),
+  alert: ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+    </svg>
+  ),
+  wrench: ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+    </svg>
+  ),
+  build: ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+    </svg>
+  ),
+  deploy: ({ className }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+    </svg>
+  ),
   globe: ({ className }: { className?: string }) => (
     <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-    </svg>
-  ),
-  nextjs: ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/>
-    </svg>
-  ),
-  react: ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
-    </svg>
-  ),
-  python: ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
-    </svg>
-  ),
-  typescript: ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
     </svg>
   ),
 };
