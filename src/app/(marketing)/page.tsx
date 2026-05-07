@@ -3,598 +3,339 @@
 import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { HoverCard } from "@/components/ui/card-3d";
-import { NumberTicker } from "@/components/ui/number-ticker";
 import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text";
 import LastMileTerminalDemo from "@/components/marketing/LastMileTerminalDemo";
 import NewsletterSignup from "@/components/marketing/NewsletterSignup";
-import {
-  SiNextdotjs,
-  SiRemix,
-  SiNuxt,
-  SiSvelte,
-  SiAstro,
-  SiReact,
-  SiVuedotjs,
-  SiNestjs,
-  SiExpress,
-  SiFastify,
-  SiHono,
-  SiFastapi,
-  SiDjango,
-  SiFlask,
-  SiGo,
-  SiPostgresql,
-  SiRedis,
-  SiPrisma,
-  SiDrizzle,
-  SiClerk,
-  SiVitest,
-  SiJest,
-  SiTypescript,
-  SiPython,
-} from "@icons-pack/react-simple-icons";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-surface">
-        {/* Hero Section with Animated Background */}
-        <div className="relative overflow-hidden min-h-screen flex flex-col">
-          {/* Interactive Grid Pattern - Magic UI */}
-          <InteractiveGridPattern
-            className="absolute inset-0 z-10 opacity-30"
-            width={40}
-            height={40}
-            squares={[50, 30]}
-          />
+      {/* Hero Section */}
+      <div className="relative overflow-hidden min-h-screen flex flex-col">
+        <InteractiveGridPattern
+          className="absolute inset-0 z-10 opacity-30"
+          width={40}
+          height={40}
+          squares={[50, 30]}
+        />
 
-          {/* Hero content */}
-          <div className="relative z-20 flex-1 flex items-start pt-8 md:pt-12 pointer-events-none">
-            <section className="relative px-4 md:px-8 lg:px-12 py-8 md:py-12 max-w-7xl mx-auto w-full pointer-events-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                {/* Left: Headline Content */}
-                <div className="lg:col-span-6 space-y-6 md:space-y-8">
-                  <BlurFade delay={0}>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
-                        [ STATUS: LOCALHOST ]
-                      </div>
-                      {/* GitHub Stars Badge - hidden until launch
-                      <a
-                        href="https://github.com/lastmile-ai/lastmile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 py-1 px-3 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-colors group"
-                      >
-                        <svg className="w-4 h-4 text-white/60 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        <span className="font-mono text-[10px] text-white/60 group-hover:text-primary transition-colors">Star on GitHub</span>
-                        <span className="font-mono text-[10px] text-primary font-bold">★ 2.4k</span>
-                      </a>
-                      */}
+        <div className="relative z-20 flex-1 flex items-start pt-8 md:pt-12 pointer-events-none">
+          <section className="relative px-4 md:px-8 lg:px-12 py-8 md:py-12 max-w-7xl mx-auto w-full pointer-events-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              {/* Left: Headline Content */}
+              <div className="lg:col-span-6 space-y-6 md:space-y-8">
+                <BlurFade delay={0}>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="py-1 px-3 bg-surface-container-high border border-outline-variant/20 text-primary font-8bit-sm">
+                      [ REPO → LIVE ]
                     </div>
-                  </BlurFade>
+                  </div>
+                </BlurFade>
 
-                  <BlurFade delay={0.1}>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black font-headline tracking-tighter leading-[0.95] text-white">
-                      AI coding got you to 80%.
-                      <br className="mb-2" />
-                      <span className="block mt-3">
+                <BlurFade delay={0.1}>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black font-headline tracking-tighter leading-[0.95] text-white">
+                    Your AI built the app.
+                    <br className="mb-2" />
+                    <span className="block mt-3">
                       <AnimatedGradientText
                         className="italic text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black"
                         colorFrom="#6bfb9a"
                         colorTo="#ffc664"
                         speed={1.5}
                       >
-                        We production-proof it. Then ship it.
+                        We get it live.
                       </AnimatedGradientText>
-                      </span>
-                    </h1>
-                  </BlurFade>
+                    </span>
+                  </h1>
+                </BlurFade>
 
-                  <BlurFade delay={0.2}>
-                    <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
-                      Claude, Cursor, Copilot&mdash;they write code fast. But shipping requires security, DevOps, CI/CD, and a dozen things AI skips.{" "}<span className="text-primary font-mono font-bold">LastMile</span>{" "}auto-generates the production-ready parts.
-                    </p>
-                  </BlurFade>
+                <BlurFade delay={0.2}>
+                  <p className="text-base md:text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                    Cursor, Claude, Copilot got you 80% there. The last 20%&mdash;env vars, database, deployment config&mdash;is where projects die.{" "}
+                    <span className="text-primary font-mono font-bold">lastmile ship</span> handles it.
+                  </p>
+                </BlurFade>
 
-                  <BlurFade delay={0.3}>
-                    <div className="pt-2">
-                      <NewsletterSignup />
+                <BlurFade delay={0.3}>
+                  <div className="pt-2">
+                    <div className="bg-surface-container border border-outline-variant/30 p-4 font-mono text-sm mb-4">
+                      <div className="flex items-center justify-between text-white/30 mb-2 text-[10px]">
+                        <span>ONE_COMMAND</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span className="text-primary">$</span>
+                        <span className="text-on-surface">lastmile ship</span>
+                      </div>
                     </div>
-                  </BlurFade>
-                </div>
-
-                {/* Right: Terminal Demo */}
-                <div className="lg:col-span-6 relative">
-                  <BlurFade delay={0.4}>
-                    <LastMileTerminalDemo />
-                    <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full border border-primary/10 opacity-20" />
-                  </BlurFade>
-                </div>
+                    <NewsletterSignup />
+                  </div>
+                </BlurFade>
               </div>
-            </section>
+
+              {/* Right: Terminal Demo - ship variant only */}
+              <div className="lg:col-span-6 relative">
+                <BlurFade delay={0.4}>
+                  <LastMileTerminalDemo variant="ship" />
+                  <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full border border-primary/10 opacity-20" />
+                </BlurFade>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* What Happens Section */}
+      <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
+        <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+          <BlurFade>
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">
+                What <span className="text-primary glow-text-primary">lastmile ship</span> does
+              </h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+            </div>
+          </BlurFade>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+            <BlurFade delay={0.05}>
+              <HoverCard className="h-full">
+                <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                  <div className="text-4xl font-black text-primary glow-text-primary mb-4">01</div>
+                  <h3 className="text-lg md:text-xl font-bold mb-4">Scans</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
+                    Detects your stack, finds what&apos;s blocking deployment. Missing env vars, no start script, broken imports.
+                  </p>
+                </div>
+              </HoverCard>
+            </BlurFade>
+
+            <BlurFade delay={0.1}>
+              <HoverCard className="h-full">
+                <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                  <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">02</div>
+                  <h3 className="text-lg md:text-xl font-bold mb-4">Fixes</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
+                    Auto-generates the missing pieces. Dockerfile, .env.example, proper config. Only what&apos;s needed to ship.
+                  </p>
+                </div>
+              </HoverCard>
+            </BlurFade>
+
+            <BlurFade delay={0.15}>
+              <HoverCard className="h-full">
+                <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                  <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
+                  <h3 className="text-lg md:text-xl font-bold mb-4">Deploys</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
+                    Provisions database, configures secrets, runs migrations. Your app goes live on lastmile.sh.
+                  </p>
+                </div>
+              </HoverCard>
+            </BlurFade>
+
+            <BlurFade delay={0.2}>
+              <HoverCard className="h-full">
+                <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
+                  <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
+                  <h3 className="text-lg md:text-xl font-bold mb-4">Live</h3>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
+                    HTTPS, CDN, custom domain. Your AI-built app is now running in production. Done.
+                  </p>
+                </div>
+              </HoverCard>
+            </BlurFade>
           </div>
         </div>
+      </section>
 
-        {/* Gap Categories Section */}
-        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <BlurFade>
-              <div className="flex items-center gap-4">
-                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">5 Things AI Always Skips</h2>
-                <div className="h-[1px] flex-grow bg-outline-variant/20" />
-                <span className="font-8bit-sm text-white/30">AI_GAPS</span>
+      {/* The Problem */}
+      <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto">
+          <BlurFade>
+            <div className="max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-black font-headline tracking-tight mb-6">
+                AI coding gets you <span className="text-error">80%</span> there.
+                <br />
+                The last <span className="text-primary">20%</span> is where projects die.
+              </h2>
+              <p className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8">
+                You&apos;ve got a working app in Cursor. Tests pass locally. Then you try to deploy and hit a wall: environment variables aren&apos;t configured, the database isn&apos;t provisioned, the build script is wrong, secrets are hardcoded.
+              </p>
+              <p className="text-on-surface-variant text-base md:text-lg leading-relaxed">
+                That&apos;s the gap. <span className="text-primary font-bold">LastMile</span> exists to close it.
+              </p>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      {/* Pricing Section - Simple */}
+      <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
+        <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+          <BlurFade>
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">
+                Simple <span className="text-primary glow-text-primary">Pricing</span>
+              </h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+            </div>
+          </BlurFade>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Free Trial */}
+            <BlurFade delay={0.05}>
+              <div className="bg-surface-container border border-outline-variant/20 p-8 h-full">
+                <div className="text-secondary font-mono text-xs mb-4">FREE_TRIAL</div>
+                <h3 className="text-2xl font-black mb-2">48 Hours</h3>
+                <p className="text-on-surface-variant text-sm mb-6">
+                  Deploy your app, test it live. No credit card required.
+                </p>
+                <div className="text-4xl font-black text-primary mb-6">$0</div>
+                <ul className="space-y-2 text-sm text-on-surface-variant">
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Full deployment
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Live URL
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> 48 hours uptime
+                  </li>
+                </ul>
               </div>
             </BlurFade>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-              <BlurFade delay={0.05}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group bg-error/5 border-l-2 border-l-error h-full">
-                    <div className="text-error font-mono text-[10px] mb-2">01 &bull; CRITICAL</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Security</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">Hardcoded secrets, SQL injection, XSS vulnerabilities. <NumberTicker value={73} suffix="%" className="text-error font-bold" /> of AI apps ship broken.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.1}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-secondary font-mono text-[10px] mb-2">02</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Testing</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">&quot;It works on my machine&quot; is not a test suite. No tests = no confidence.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.15}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-primary font-mono text-[10px] mb-2">03</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Error Handling</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">catch(e) {`{}`} is not error handling. Silent failures crash at 3am.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.2}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-secondary font-mono text-[10px] mb-2">04</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Database</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">No migrations, N+1 queries, missing indexes. Data layer is an afterthought.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.25}>
-                <HoverCard className="h-full">
-                  <div className="p-4 md:p-6 border border-outline-variant/20 hover:bg-surface-container transition-colors group h-full">
-                    <div className="text-primary font-mono text-[10px] mb-2">05</div>
-                    <h3 className="text-sm md:text-base font-bold mb-2">Boilerplate</h3>
-                    <p className="text-on-surface-variant text-xs leading-relaxed">No .gitignore, no Dockerfile, no CI/CD. The setup AI never generates.</p>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-            </div>
-          </div>
-        </section>
 
-        {/* Before/After Transformation */}
-        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <BlurFade>
-              <div className="flex items-center gap-4">
-                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Before &amp; <span className="text-primary glow-text-primary">After</span></h2>
-                <div className="h-[1px] flex-grow bg-outline-variant/20" />
-                <span className="font-8bit-sm text-white/30">TRANSFORM</span>
+            {/* Starter */}
+            <BlurFade delay={0.1}>
+              <div className="bg-surface-container border border-outline-variant/20 p-8 h-full">
+                <div className="text-primary font-mono text-xs mb-4">STARTER</div>
+                <h3 className="text-2xl font-black mb-2">Keep It Live</h3>
+                <p className="text-on-surface-variant text-sm mb-6">
+                  Your app stays running. Custom domain included.
+                </p>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-4xl font-black text-primary">$12</span>
+                  <span className="text-on-surface-variant">/mo</span>
+                </div>
+                <ul className="space-y-2 text-sm text-on-surface-variant">
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Unlimited deploys
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Custom domain + SSL
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Auto-deploy on push
+                  </li>
+                </ul>
+              </div>
+            </BlurFade>
+
+            {/* Pro */}
+            <BlurFade delay={0.15}>
+              <div className="bg-surface-container border-2 border-primary/30 p-8 h-full relative">
+                <div className="absolute top-0 right-0 bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 font-mono">
+                  RECOMMENDED
+                </div>
+                <div className="text-primary font-mono text-xs mb-4">PRO</div>
+                <h3 className="text-2xl font-black mb-2">With Database</h3>
+                <p className="text-on-surface-variant text-sm mb-6">
+                  PostgreSQL included. Migrations run automatically.
+                </p>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-4xl font-black text-primary">$19</span>
+                  <span className="text-on-surface-variant">/mo</span>
+                </div>
+                <ul className="space-y-2 text-sm text-on-surface-variant">
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Everything in Starter
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> PostgreSQL database
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Auto migrations
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-primary">&gt;</span> Database backups
+                  </li>
+                </ul>
+              </div>
+            </BlurFade>
+          </div>
+
+          <BlurFade delay={0.2}>
+            <div className="text-center text-on-surface-variant text-sm">
+              You pay for uptime. Not analysis. Not fixes.
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      {/* Who's This For - Simplified */}
+      <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
+          <BlurFade>
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">
+                Built for <span className="text-primary glow-text-primary">AI-First</span> Builders
+              </h2>
+              <div className="h-[1px] flex-grow bg-outline-variant/20" />
+            </div>
+          </BlurFade>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <BlurFade delay={0.05}>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="text-primary font-mono text-xs mb-4">CURSOR_USERS</div>
+                <h3 className="font-bold text-lg mb-3">Vibe coders</h3>
+                <p className="text-on-surface-variant text-sm">
+                  You build fast with AI. LastMile is the bridge from &quot;it works locally&quot; to &quot;it&apos;s live.&quot;
+                </p>
               </div>
             </BlurFade>
 
             <BlurFade delay={0.1}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-outline-variant/20">
-                {/* Before */}
-                <div className="bg-surface border-b lg:border-b-0 lg:border-r border-outline-variant/20">
-                <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 bg-surface-container-low border-b border-outline-variant/20">
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <span className="font-mono text-xs font-bold text-error">BEFORE</span>
-                    <span className="font-mono text-[10px] text-white/20">api/config.js</span>
-                  </div>
-                </div>
-                <div className="p-4 md:p-6 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto">
-                  <div className="flex items-start gap-2 md:gap-4">
-                    <span className="text-white/10 select-none w-4 md:w-6">01</span>
-                    <code className="text-white/60"><span className="text-secondary">const</span> db_url = <span className="text-primary-container">&quot;postgres://admin:pass123@db.com&quot;</span>;</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">02</span>
-                    <code className="text-white/60"><span className="text-secondary">const</span> api_key = <span className="text-primary-container">&quot;sk_live_abc123...&quot;</span>; <span className="text-error bg-error/10 px-1 ml-2 text-[10px]">// HARDCODED</span></code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">03</span>
-                    <code> </code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">04</span>
-                    <code className="text-white/60"><span className="text-secondary">async function</span> <span className="text-primary">fetchData</span>() {`{`}</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">05</span>
-                    <code className="text-white/60 pl-4">  <span className="text-secondary">return</span> fetch(api_key).json();</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">06</span>
-                    <code className="text-white/60">{`}`} <span className="text-error bg-error/10 px-1 ml-2 text-[10px]">// NO_ERROR_HANDLING</span></code>
-                  </div>
-
-                  <div className="mt-6 pt-6 border-t border-outline-variant/10">
-                    <div className="text-error font-mono text-[10px] mb-2">[GAPS: SECURITY, ERROR_HANDLING]</div>
-                    <div className="w-full bg-surface-container-highest h-2">
-                      <div className="bg-error h-full" style={{ width: "38%" }} />
-                    </div>
-                    <div className="flex justify-between mt-2 font-mono text-[10px] text-white/40">
-                      <span>SCORE: 38/100</span>
-                      <span className="text-error">NOT_READY</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="text-secondary font-mono text-xs mb-4">FOUNDERS</div>
+                <h3 className="font-bold text-lg mb-3">Ship-fast founders</h3>
+                <p className="text-on-surface-variant text-sm">
+                  Stop wrestling with DevOps. Get your MVP live and iterate. Infrastructure shouldn&apos;t slow you down.
+                </p>
               </div>
-
-              {/* After */}
-              <div className="bg-surface-container">
-                <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 bg-surface-container-high border-b border-outline-variant/20">
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <span className="font-mono text-xs font-bold text-primary">AFTER</span>
-                    <span className="font-mono text-[10px] text-white/20">api/config.ts</span>
-                  </div>
-                </div>
-                <div className="p-4 md:p-6 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto">
-                  <div className="flex items-start gap-2 md:gap-4">
-                    <span className="text-white/10 select-none w-4 md:w-6">01</span>
-                    <code className="text-white/60"><span className="text-secondary">import</span> {`{ z }`} <span className="text-secondary">from</span> <span className="text-primary-container">&quot;zod&quot;</span>;</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">02</span>
-                    <code className="text-white/60"><span className="text-secondary">const</span> EnvSchema = z.object({`{`}</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">03</span>
-                    <code className="text-white/60 pl-4">  DATABASE_URL: z.string().url(),</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">04</span>
-                    <code className="text-white/60 pl-4">  API_KEY: z.string().startsWith(<span className="text-primary-container">&quot;sk_&quot;</span>)</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">05</span>
-                    <code className="text-white/60">{`})`}</code>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-4 mt-2">
-                    <span className="text-white/10 select-none w-4 md:w-6">06</span>
-                    <code className="text-primary/60">// + try/catch, .env.example generated</code>
-                  </div>
-
-                  <div className="mt-6 pt-6 border-t border-outline-variant/10">
-                    <div className="text-primary font-mono text-[10px] mb-2">[FIXES: SECRETS_EXTRACTED, VALIDATION_ADDED]</div>
-                    <div className="w-full bg-surface-container-highest h-2">
-                      <div className="bg-primary h-full" style={{ width: "92%" }} />
-                    </div>
-                    <div className="flex justify-between mt-2 font-mono text-[10px] text-white/40">
-                      <span>SCORE: 92/100</span>
-                      <span className="text-primary">SHIP_IT</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             </BlurFade>
 
-{/* Developer Quotes - Add real quotes here when available
-            <BlurFade delay={0.2}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                <div className="border-l-2 border-error/50 pl-4 py-2">
-                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
-                    &quot;Quote 1&quot;
-                  </p>
-                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
-                </div>
-                <div className="border-l-2 border-secondary/50 pl-4 py-2">
-                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
-                    &quot;Quote 2&quot;
-                  </p>
-                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
-                </div>
-                <div className="border-l-2 border-primary/50 pl-4 py-2">
-                  <p className="text-on-surface-variant font-mono text-xs italic leading-relaxed">
-                    &quot;Quote 3&quot;
-                  </p>
-                  <p className="font-mono text-[10px] text-white/30 mt-2">— Source</p>
-                </div>
+            <BlurFade delay={0.15}>
+              <div className="bg-surface-container border border-outline-variant/20 p-6">
+                <div className="text-primary font-mono text-xs mb-4">WEEKEND_PROJECTS</div>
+                <h3 className="font-bold text-lg mb-3">Side project builders</h3>
+                <p className="text-on-surface-variant text-sm">
+                  You have 2 hours on Saturday. Don&apos;t spend them configuring nginx. Ship and share.
+                </p>
               </div>
             </BlurFade>
-            */}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* The 4-Step Escape Plan */}
-        <section id="how-it-works" className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <BlurFade>
-              <div className="flex items-center gap-4">
-                <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">The 4-Step <span className="text-primary glow-text-primary">Escape Plan</span></h2>
-                <div className="h-[1px] flex-grow bg-outline-variant/20" />
-                <span className="font-8bit-sm text-white/30">EXECUTE</span>
-              </div>
-            </BlurFade>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
-              <BlurFade delay={0.05}>
-                <HoverCard>
-                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
-                    <div className="text-4xl font-black text-primary glow-text-primary mb-4">01</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Roast</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We scan your code and tell you exactly how cooked it is. No sugarcoating. You&apos;ll get a score out of 100.</p>
-                    <div className="font-mono text-xs text-primary">lastmile analyze</div>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.1}>
-                <HoverCard>
-                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
-                    <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">02</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Fix</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">We auto-fix the production gaps. Error handling, security issues, missing configs&mdash;all the things you &quot;planned to add later.&quot;</p>
-                    <div className="font-mono text-xs text-secondary">lastmile fix</div>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.15}>
-                <HoverCard>
-                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
-                    <div className="text-4xl font-black text-primary glow-text-primary mb-4">03</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Ship It</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">One command. Zero config. Database provisioned. Custom domain configured. Your app is live.</p>
-                    <div className="font-mono text-xs text-primary">lastmile ship</div>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-              <BlurFade delay={0.2}>
-                <HoverCard>
-                  <div className="p-6 md:p-8 border border-outline-variant/20 hover:bg-surface-container transition-colors group hover-glow h-full">
-                    <div className="text-4xl font-black text-secondary glow-text-secondary mb-4">04</div>
-                    <h3 className="text-lg md:text-xl font-bold mb-4">Iterate</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed mb-6">Every deploy re-analyzes your code. Regressions caught before they go live. Production score stays high.</p>
-                    <div className="font-mono text-xs text-secondary">lastmile ship</div>
-                  </div>
-                </HoverCard>
-              </BlurFade>
-            </div>
-
-            {/* Continuous Value Banner */}
-            <div className="mt-8 p-6 border border-primary/20 bg-primary/5">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest">CONTINUOUS</span>
-                </div>
-                <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                  Every deploy runs analysis automatically. Your production score updates in real-time. Regressions caught before they go live.
-                </p>
-                <Link href="/docs/analysis" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
-                  LEARN_MORE &gt;
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* LastMile Cloud Section */}
-        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">LastMile <span className="text-primary glow-text-primary">Cloud</span></h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">DEPLOY</span>
-            </div>
-
-            <p className="text-on-surface-variant font-mono text-sm md:text-base max-w-3xl">
-              One command to production. Database included. SSL automatic. Zero DevOps required. <span className="text-primary">lastmile ship</span> and you&apos;re live.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">BUILDS</div>
-                <h3 className="font-bold text-lg mb-2">Auto-Detected</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  We detect your stack and build automatically. Next.js, Vite, Astro, Express&mdash;no config files needed.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DATABASE</div>
-                <h3 className="font-bold text-lg mb-2">Provisioned</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Database created and connected automatically. Migrations run on deploy. No connection strings to manage.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-primary/30 transition-all">
-                <div className="text-primary font-mono text-[10px] mb-3 tracking-widest">SSL_CDN</div>
-                <h3 className="font-bold text-lg mb-2">Automatic</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  HTTPS certificates provisioned instantly. CDN delivers your app from 300+ edge locations worldwide.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover:border-secondary/30 transition-all">
-                <div className="text-secondary font-mono text-[10px] mb-3 tracking-widest">DOMAINS</div>
-                <h3 className="font-bold text-lg mb-2">One Click</h3>
-                <p className="text-on-surface-variant font-mono text-xs leading-relaxed">
-                  Buy a domain for $15/year. DNS configured automatically. Live on your custom domain in minutes.
-                </p>
-              </div>
-            </div>
-
-            {/* LastMile Cloud Banner */}
-            <div className="mt-8 p-6 border border-primary/20 bg-primary/5">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest">LASTMILE_CLOUD</span>
-                </div>
-                <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                  No Dockerfiles. No CI/CD pipelines. No environment variable juggling. Just <span className="text-primary">lastmile ship</span>.
-                </p>
-                <a href="/cloud" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
-                  LEARN_MORE &gt;
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Who's This For */}
-        <section className="px-4 md:px-8 lg:px-12 py-16 md:py-24 bg-surface-container-low">
-          <div className="max-w-7xl mx-auto space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Who&apos;s This <span className="text-secondary glow-text-secondary">Actually For</span>?</h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">PLAYERS</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Featured: AI-First Builders - most prominent */}
-              <div className="bg-surface-container border-2 border-primary/40 p-6 hover-glow transition-all relative">
-                <div className="absolute -top-2 right-4 bg-primary text-on-primary font-mono text-[8px] px-2 py-0.5">PRIMARY_TARGET</div>
-                <div className="text-primary font-mono text-xs mb-4">CURSOR_CLAUDE_COPILOT</div>
-                <h3 className="font-bold text-lg mb-3">AI-First Builders</h3>
-                <p className="text-on-surface-variant font-mono text-sm">
-                  Using Cursor, Claude Code, or Copilot to ship fast? We catch what AI misses: security holes, missing error handling, no tests. Every time.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-                <div className="text-secondary font-mono text-xs mb-4">THE_HUSTLERS</div>
-                <h3 className="font-bold text-lg mb-3">Founders &amp; Builders</h3>
-                <p className="text-on-surface-variant font-mono text-sm">
-                  Ship fast, iterate faster. LastMile keeps you production-ready as you pivot and grow.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-                <div className="text-primary font-mono text-xs mb-4">THE_PROFESSIONALS</div>
-                <h3 className="font-bold text-lg mb-3">Real Developers</h3>
-                <p className="text-on-surface-variant font-mono text-sm">
-                  You know what you&apos;re doing. Let LastMile handle the checklist on every PR so you can focus on the interesting stuff.
-                </p>
-              </div>
-              <div className="bg-surface-container border border-outline-variant/20 p-6 hover-glow transition-all">
-                <div className="text-secondary font-mono text-xs mb-4">THE_SCALERS</div>
-                <h3 className="font-bold text-lg mb-3">Growing Teams</h3>
-                <p className="text-on-surface-variant font-mono text-sm">
-                  New devs, new code, same standards. LastMile enforces consistency as your team scales.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Supported Tech Stacks */}
-        <section className="w-full bg-surface-container-low py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8 md:space-y-12">
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl md:text-2xl font-black font-headline tracking-tight uppercase">Works With Your <span className="text-primary glow-text-primary">Stack</span></h2>
-              <div className="h-[1px] flex-grow bg-outline-variant/20" />
-              <span className="font-8bit-sm text-white/30">COMPAT</span>
-            </div>
-
-            {/* Main Frameworks & Databases Icon Grid */}
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-4">
-              {[
-                { name: "TypeScript", Icon: SiTypescript },
-                { name: "Python", Icon: SiPython },
-                { name: "Go", Icon: SiGo },
-                { name: "Next.js", Icon: SiNextdotjs },
-                { name: "Remix", Icon: SiRemix },
-                { name: "Nuxt", Icon: SiNuxt },
-                { name: "SvelteKit", Icon: SiSvelte },
-                { name: "Astro", Icon: SiAstro },
-                { name: "React", Icon: SiReact },
-                { name: "Vue", Icon: SiVuedotjs },
-                { name: "NestJS", Icon: SiNestjs },
-                { name: "Express", Icon: SiExpress },
-                { name: "Fastify", Icon: SiFastify },
-                { name: "Hono", Icon: SiHono },
-                { name: "FastAPI", Icon: SiFastapi },
-                { name: "Django", Icon: SiDjango },
-                { name: "Flask", Icon: SiFlask },
-                { name: "Postgres", Icon: SiPostgresql },
-              ].map((stack) => (
-                <div
-                  key={stack.name}
-                  className="group flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-surface-container transition-colors"
-                  title={stack.name}
-                >
-                  <stack.Icon
-                    size={32}
-                    className="text-on-surface-variant group-hover:text-primary transition-colors"
-                  />
-                  <span className="font-mono text-[10px] text-on-surface-variant group-hover:text-on-surface transition-colors text-center">
-                    {stack.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Plus: ORMs, Auth, Testing */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-outline-variant/20">
-              <span className="font-mono text-xs text-white/40">Plus:</span>
-              {[
-                { name: "Prisma", Icon: SiPrisma },
-                { name: "Drizzle", Icon: SiDrizzle },
-                { name: "Clerk", Icon: SiClerk },
-                { name: "Vitest", Icon: SiVitest },
-                { name: "Jest", Icon: SiJest },
-                { name: "Redis", Icon: SiRedis },
-              ].map((tool) => (
-                <div
-                  key={tool.name}
-                  className="group flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-container transition-colors"
-                  title={tool.name}
-                >
-                  <tool.Icon
-                    size={20}
-                    className="text-on-surface-variant/60 group-hover:text-primary transition-colors"
-                  />
-                  <span className="font-mono text-[10px] text-on-surface-variant/60 group-hover:text-on-surface transition-colors">
-                    {tool.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Deploy CTA */}
-            <div className="bg-surface border border-primary/20 p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                <span className="font-mono text-xs text-primary uppercase tracking-widest">DEPLOY</span>
-              </div>
-              <p className="text-on-surface-variant font-mono text-sm flex-grow">
-                Ship to <span className="text-primary">LastMile Cloud</span> with zero config. Database included.
-              </p>
-              <a href="/cloud" className="font-mono text-xs text-primary hover:underline whitespace-nowrap">
-                LEARN_MORE &gt;
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA Section */}
-        <section className="py-16 md:py-24 px-4 md:px-8 text-center overflow-hidden bg-surface">
-          <div className="font-mono text-[6px] md:text-[8px] leading-[6px] md:leading-[8px] text-white/5 select-none pointer-events-none whitespace-pre mb-8 md:mb-12">
-            &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;{"\n"}
-            SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT SHIP_IT{"\n"}
-            &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">Still on <span className="font-mono text-primary glow-text-primary">localhost:3000</span>?</h2>
+      {/* Final CTA */}
+      <section className="py-16 md:py-24 px-4 md:px-8 text-center bg-surface-container-low">
+        <BlurFade>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6 md:mb-8">
+            Your repo. <span className="text-primary glow-text-primary">One command.</span> Live.
+          </h2>
           <p className="text-on-surface-variant font-mono text-sm mb-8 max-w-xl mx-auto">
-            Be the first to know when LastMile launches. Get early access and ship your AI-generated code to production.
+            Stop debugging deployment. Start shipping.
           </p>
           <div className="max-w-md mx-auto">
             <NewsletterSignup />
           </div>
-        </section>
+          <div className="mt-8 font-mono text-xs text-white/30">
+            Free 48-hour trial. No credit card required.
+          </div>
+        </BlurFade>
+      </section>
     </div>
   );
 }
