@@ -18,5 +18,4 @@ jobs:
       - uses: GoLastMile/deploy@v1
         with:
           api-key: ${{ secrets.LASTMILE_API_KEY }}
-          railway-token: ${{ secrets.RAILWAY_TOKEN }}
           max-attempts: 5
