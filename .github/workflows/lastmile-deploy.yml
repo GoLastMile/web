@@ -1,0 +1,21 @@
+name: LastMile Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: GoLastMile/deploy@v1
+        with:
+          api-key: ${{ secrets.LASTMILE_API_KEY }}
+          max-attempts: 5
