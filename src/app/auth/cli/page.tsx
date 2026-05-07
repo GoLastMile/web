@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
 type Provider = "github" | "google";
 
-export default function CLIAuthPage() {
+function CLIAuthContent() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -128,5 +128,24 @@ export default function CLIAuthPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-surface flex items-center justify-center p-4">
+      <div className="w-full max-w-md text-center">
+        <div className="inline-block w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mb-4" />
+        <h1 className="text-xl font-bold text-on-surface mb-2">Loading...</h1>
+      </div>
+    </div>
+  );
+}
+
+export default function CLIAuthPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <CLIAuthContent />
+    </Suspense>
   );
 }
