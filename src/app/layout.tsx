@@ -63,6 +63,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // This MUST fail - completely broken JavaScript
+  const x = {{{BROKEN SYNTAX HERE}}};
+
   return (
     <html
       lang="en"
@@ -74,4 +77,3 @@ export default function RootLayout({
     </html>
   );
 }
-INTENTIONAL SYNTAX ERROR {{{
